@@ -1,17 +1,9 @@
-from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from django.http import JsonResponse
+from django.urls import path
 
-@api_view(["POST"])
+from .views import register
+from .views import login 
 
-def register(request):
-    return JsonResponse({
-        "DATA": "SOON"
-    })
-
-def login(request):
-    return JsonResponse({
-        "DATA": "SOON"
-    })
-
+urlpatterns = [
+  path('register/', register, name='register'),
+  path('login/', login, name='login')
+]
