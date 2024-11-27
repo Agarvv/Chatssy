@@ -1,11 +1,27 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-class User(models.Model):
+
+class UserManager(BaseUserManager):
+    def create_user(self, username, email, password=None):
+        if not username or not email or not password:
+            raise ValidationError("Verify the fields, please.")
+        
+        email = self.normalize_email(email)
+        user = self.model(username=username, email=email)
+        user.set_password(password)  
+        user.save(using=self._db)
+
+        return user
+
+class User(AbstractBaseUser):
     username = models.CharField(max_length=150, unique=True)
     email = models.EmailField(unique=True)
-    password = models.CharField(max_length=255)
+    password = models.CharField(max_length=255) 
     profilePicture = models.URLField()
+
+    objects = UserManager()
 
     def clean(self):
         if "@" not in self.email:

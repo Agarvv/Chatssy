@@ -10,7 +10,7 @@ class LoginSerializer(serializers.ModelSerializer):
     def validate_email(self, value):
         if not value:
             raise ValidationError('Email Is Required')
-        if not User.objects.filter(email = value) exists():
+        if not User.objects.filter(email = value).exists():
             raise ValidationError('That Email Does Not Exist.')
         
         return value 
