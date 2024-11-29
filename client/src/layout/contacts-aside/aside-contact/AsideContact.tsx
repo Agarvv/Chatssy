@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './AsideContact.module.css'
-import { UserContact } from '@types/UserContact'
+import { UserContact } from 'src/types/chat/UserContact'
 
 
 interface Props {

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { UserContact } from '@types/UserContact'
-import { AsideContant } from './aside-contact/AsideContact'
-import { SearchAsideContacts } from './search-aside-contacts/SearchAsideContacts'
-import styles from './ContactsAside.module.css' 
+import type { UserContact } from "src/types/chat/UserContact"
+import  AsideContact  from './aside-contact/AsideContact'
+import SearchAsideContacts from './search-aside-contacts/SearchAsideContacts'
+import styles from './ContactsAside.module.css'
 
 interface Props {
     contacts: UserContact[] 
