@@ -1,45 +1,85 @@
-from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from django.http import JsonResponse
-
 from datetime import timedelta
 from django.utils import timezone
+
 from .serializers.RegisterSerializer import RegisterSerializer 
 from .serializers.LoginSerializer import LoginSerializer 
+from .serializers.SendResetPasswordSerializer import SendResetPasswordSerializer
+from .serializers.ResetPasswordSerializer import ResetPasswordSerializer
+from .authService import register_user, login_user, send_reset_password_email, reset_password
 
-from .authService import register_user, login_user
 
 @api_view(["POST"])
-# register user
+# Register user
 def register(request):
-    # validate data
     serializer = RegisterSerializer(data=request.data)
     if serializer.is_valid():
         register_user(serializer)
-        return JsonResponse({
+        return Response({
             "message": "¡Welcome To Chatssy!"
         })
-        
-    
-    return JsonResponse({
-        "errors": serializer.errors
-    })
 
+    return Response({
+        "errors": serializer.errors
+    }, status=400)
+
+
+# Login user
+@api_view(["POST"])
 def login(request):
     serializer = LoginSerializer(data=request.data)
     if serializer.is_valid():
-        jwtToken = login_user(serializer, request)
-        response = JsonResponse({
-            "access_token": jwtToken
+        
+        jwt_token = login_user(serializer, request)
+        
+        response = Response({
+            "access_token": jwt_token
         })
+
+
+        expiration_time = timezone.now() + timedelta(days=1)
         response.set_cookie(
             'jwt',
-            jwtToken,
+            jwt_token,
             httponly=True,
             secure=True,
-            expires=timezone.now() + timedelta(days=1),
+            expires=expiration_time,
             samesite='None'
         )
         return response
-        
+
+    return Response({
+        "errors": serializer.errors
+    }, status=400)
+
+
+# Send reset password URL to user email
+@api_view(["POST"])
+def send_reset_url(request):
+    serializer = SendResetPasswordSerializer(drequest.data)
+    
+    if serializer.is_valid():
+        send_reset_password_email(serializer)
+        return Response({
+            "message": "Check Your Email!"
+        })
+    
+    return Response({
+        "errors": serializer.errors
+    }, status=400)
+
+
+# Reset user password
+@api_view(["POST"])
+def reset_password(request):
+    serializer = ResetPasswordSerializer(request.data)
+    if serializer.is_valid():
+        reset_password(serializer)
+        return Response({
+            "message": "Check Your Email!"
+        })
+
+    return Response({
+        "errors": serializer.errors
+    }, status=400)
