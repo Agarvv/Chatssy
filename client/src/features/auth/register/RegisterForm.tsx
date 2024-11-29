@@ -1,8 +1,8 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styles from './RegisterForm.module.css';
-import { FormValues } from './formTypes';
-import { usernameValidation, emailValidation, passwordValidation } from './validators';
+import { FormValues } from './types';
+import { usernameValidation, emailValidation, passwordValidation } from 'src/outils/form-validators';
 import { useRegister } from './useRegister';
 
 const RegisterForm: React.FC = () => {

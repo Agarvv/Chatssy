@@ -5,8 +5,8 @@ const GoogleAuthButton = () => {
     
     
     return (
-      <button class="social-btn google">
-         <i class="fab fa-google"></i> 
+      <button className="social-btn google">
+         <i className="fab fa-google"></i> 
          Google
       </button>
     )

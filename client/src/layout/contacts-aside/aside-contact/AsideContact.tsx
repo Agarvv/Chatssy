@@ -14,8 +14,8 @@ const AsideContact: React.FC<Props> = ({ contact }) => {
             <div className={styles['ac-user']}>
                 <img src="Screenshot_20240928-011835.png" alt="ñ"/>
                 <div className={styles['ac-content']}>
-                    <h4>{{ contact.username }}</h4>
-                    <p>{{ contact.lastMessage }}</p>
+                    <h4>{ contact.username }</h4>
+                    <p>{ contact.lastMessage }</p>
                 </div>
             </div>
             <div className={styles['ac-date']}>

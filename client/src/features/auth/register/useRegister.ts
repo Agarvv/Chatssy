@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
-import axiosInstance from '@config/axiosConfig'; 
-import { FormValues } from './formTypes';
+import axiosInstance from 'src/config/axiosConfig'; 
+import { FormValues } from './types';
 
 
 
@@ -11,12 +11,13 @@ const registerUser = async (data: FormValues) => {
 
 
 export const useRegister = () => {
-  return useMutation(registerUser, {
-    onSuccess: (data) => {
-      console.log('User registered successfully:', data);
+  return useMutation({
+    mutationFn: (data: FormValues) => registerUser(data),
+    onSuccess: (data: any) => {
+      console.log('Welcome!:', data);
     },
-    onError: (error) => {
-      console.error('Error registering user:', error);
+    onError: (error: Error) => {
+      console.error('Something went wrong..:', error);
     }
-  });
+  })
 };

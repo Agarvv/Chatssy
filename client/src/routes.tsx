@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { LoginForm } from './features/auth/login/LoginForm'
-import { RegisterForm } from './features/auth/register/RegisterForm'
+import LoginForm from './features/auth/login/LoginForm'
+import RegisterForm from './features/auth/register/RegisterForm'
 
 export const AppRoutes = () => (
   <Router>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styles from './LoginForm.module.css';
-import { FormValues } from './formTypes';
-import { emailValidation, passwordValidation } from './validators';
+import { FormValues } from './types';
+import { emailValidation, passwordValidation } from 'src/outils/form-validators';
 import { useLogin } from './useLogin';
 
 const LoginForm: React.FC = () => {

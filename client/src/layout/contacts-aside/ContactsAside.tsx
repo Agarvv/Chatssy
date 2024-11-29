@@ -20,7 +20,7 @@ const ContactsAside: React.FC<Props> = ({ contacts }) => {
             {/* Contact list */}
             <div className={styles['aside-chats']}>
                 {contacts.map((contact) => (
-                    <AsideContant key={contact.id} contact={contact} />
+                    <AsideContact key={contact.id} contact={contact} />
                 ))}
             </div>
         </aside>

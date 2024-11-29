@@ -1,20 +1,20 @@
 import { useMutation } from '@tanstack/react-query';
-import axiosInstance from '@config/axiosConfig'; 
-import { FormValues } from './formTypes';
+import axiosInstance from 'src/config/axiosConfig'; 
+import { FormValues } from './types';
 
-
-const loginUser = async (data: FormValues) => {
+const loginUser = async (data: FormValues): Promise<any> => {
   const response = await axiosInstance.post('/auth/login', data);
-  return response.data; 
+  return response.data;
 };
 
 export const useLogin = () => {
-  return useMutation(loginUser, {
-    onSuccess: (data) => {
-      console.log('welcome back!:', data);
+  return useMutation({
+    mutationFn: (data: FormValues) => loginUser(data),
+    onSuccess: (data: any) => {
+      console.log('Welcome back!:', data);
     },
-    onError: (error) => {
-      console.error('something went wronh..:', error);
+    onError: (error: Error) => {
+      console.error('Something went wrong..:', error);
     }
   });
 };
