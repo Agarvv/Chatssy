@@ -1,15 +1,16 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { FormValues } from './formTypes'; 
-import { emailValidation, passwordValidation } from './validators'; 
-import { useLogin } from './useLogin'
+import { FormValues } from './formTypes';
+import { emailValidation, passwordValidation } from './validators';
+import { useLogin } from './useLogin';
 
 const LoginForm: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
-  const { mutate } = useLogin(); 
-  
+  const { mutate } = useLogin();
+
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    mutate(data)
+    console.log('data to send', data);
+    mutate(data);
   };
 
   return (
@@ -26,20 +27,20 @@ const LoginForm: React.FC = () => {
                 className="email"
                 type="email"
                 placeholder="Email"
-                {...register('email', emailValidation)} 
+                {...register('email', emailValidation)}
               />
+              {errors.email && <span className="error">{errors.email.message}</span>}
               <i className="fas fa-envelope icon"></i>
-              {errors.email && <p className="error">{errors.email.message}</p>}
             </div>
             <div className="inp-box">
               <input
                 className="password"
                 type="password"
                 placeholder="Your Password"
-                {...register('password', passwordValidation)} 
+                {...register('password', passwordValidation)}
               />
+              {errors.password && <span className="error">{errors.password.message}</span>}
               <i className="fas fa-lock icon"></i>
-              {errors.password && <p className="error">{errors.password.message}</p>}
             </div>
             <div className="btn-box">
               <button type="submit">Login</button>
@@ -49,15 +50,19 @@ const LoginForm: React.FC = () => {
                 <a href="#">Forgot Password</a>
               </div>
               <div>
-                <a href="#">Don't Have An Account?</a>
+                <a href="#">Don't Have An Account</a>
               </div>
             </div>
           </form>
           <div className="social-login">
             <p className="social-login-title">Or log in with</p>
             <div className="social-btns">
-              <button className="social-btn facebook"><i className="fab fa-facebook-f"></i> Facebook</button>
-              <button className="social-btn google"><i className="fab fa-google"></i> Google</button>
+              <button className="social-btn facebook">
+                <i className="fab fa-facebook-f"></i> Facebook
+              </button>
+              <button className="social-btn google">
+                <i className="fab fa-google"></i> Google
+              </button>
             </div>
           </div>
         </div>
