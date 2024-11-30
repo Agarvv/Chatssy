@@ -6,7 +6,10 @@ import { useDispatch } from 'react-redux';
 import { setLoading, setSuccess, setError, clearMessages } from 'src/store/apiStatus/apiStatusSlice';
 import { AppDispatch } from 'src/store/apiStatus/apiStatusStore';
 
-
+const loginUser = async (data: FormValues): Promise<any> => {
+  const response = await axiosInstance.post('/auth/register', data);
+  return response.data;
+};
 
 export const useRegister = () => {
   const dispatch: AppDispatch = useDispatch(); 
