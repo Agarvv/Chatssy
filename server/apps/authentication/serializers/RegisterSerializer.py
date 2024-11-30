@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.core.exceptions import ValidationError
-from user.models.User import User 
+from apps.user.models import User
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:

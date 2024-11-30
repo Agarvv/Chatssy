@@ -23,6 +23,10 @@ class User(AbstractBaseUser):
 
     objects = UserManager()
 
+    # Indica que el correo electrónico será el campo principal para el nombre de usuario
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']  # Aquí añades 'username' como campo adicional obligatorio
+
     def clean(self):
         if "@" not in self.email:
             raise ValidationError("Email Should Be Valid")

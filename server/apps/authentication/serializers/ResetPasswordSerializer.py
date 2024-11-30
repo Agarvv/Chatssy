@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.core.exceptions import ValidationError
-from user.models.User import User 
+from apps.user.models import User
 
 class ResetPasswordSerializer(serializers.ModelSerializer):
     class Meta:
@@ -25,7 +25,7 @@ class ResetPasswordSerializer(serializers.ModelSerializer):
         if not value:
             raise ValidationError('Password is required')
             
-        if len(value) < 8 
+        if len(value) < 8:
             raise ValidationError('Password must be at least 8 chars')
         return value
     

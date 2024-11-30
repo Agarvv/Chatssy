@@ -1,7 +1,8 @@
 
 from django.contrib.auth import authenticate, login, logout
-from user.models.User import User, ResetToken
-from util.JwtUtil import generate_jwt
+from apps.user.models import User
+from .models import ResetToken
+from apps.util.JwtUtil import generate_jwt
 from django.core.mail import send_mail
 import secrets 
 from django.utils import timezone
