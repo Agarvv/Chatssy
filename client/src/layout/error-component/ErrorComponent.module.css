@@ -1,0 +1,7 @@
+.error {
+    padding: 20px;
+    background-color: var(--danger);
+    color: white;
+    z-index: 999;
+    font-weight: bold; 
+}

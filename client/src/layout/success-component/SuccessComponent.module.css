@@ -1,0 +1,7 @@
+.success {
+    padding: 20px;
+    background-color: var(--success);
+    color: white;
+    z-index: 999;
+    font-weight: bold; 
+}

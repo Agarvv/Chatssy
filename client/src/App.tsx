@@ -11,9 +11,14 @@ function App() {
 
   return (
     <div className="App">
-       {isLoading && <LoadingComponent />} 
-       {successMessage && <SuccessComponent />} 
-       { errorMessage && <ErrorComponent /> } 
+       {isLoading && <LoadingComponent />}
+       
+       {successMessage && <SuccessComponent successMessage={successMessage} />}
+       
+       
+       {errorMessage && <ErrorComponent errorMessage={errorMessage} />}
+       
+       
       <AppRoutes /> 
     </div>
   );

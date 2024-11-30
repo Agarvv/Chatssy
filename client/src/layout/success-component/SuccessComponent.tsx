@@ -1,9 +1,18 @@
 import React from 'react'
 
-const SuccessComponent = () => {
+import styles from './SuccessComponent.module.css'
+
+
+interface Props {
+    successMessage: string 
+}
+
+const SuccessComponent: React.FC<Props> = ({ successMessage }) => {
     return(
        <>
-       
+          <div className={styles.success}>
+             <p>{ successMessage }</p>
+          </div> 
        </>
     )
 }
