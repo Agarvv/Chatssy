@@ -17,6 +17,11 @@ body {
     font-family: 'Manrope', sans-serif;
 }
 
+.formError {
+    color: var(--danger);
+    padding: 5px;
+}
+
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
