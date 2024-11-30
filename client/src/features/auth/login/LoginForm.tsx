@@ -30,7 +30,7 @@ const LoginForm: React.FC = () => {
                 placeholder="Email"
                 {...register('email', emailValidation)}
               />
-              {errors.email && <span className={styles.error}>{errors.email.message}</span>}
+              {errors.email && <small className={styles.error}>{errors.email.message}</small>}
               <i className="fas fa-envelope icon"></i>
             </div>
             <div className={styles['inp-box']}>
@@ -40,7 +40,7 @@ const LoginForm: React.FC = () => {
                 placeholder="Your Password"
                 {...register('password', passwordValidation)}
               />
-              {errors.password && <span className={styles.error}>{errors.password.message}</span>}
+              {errors.password && <small className={styles.error}>{errors.password.message}</small>}
               <i className="fas fa-lock icon"></i>
             </div>
             <div className={styles['btn-box']}>
