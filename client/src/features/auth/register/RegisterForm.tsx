@@ -32,7 +32,7 @@ const RegisterForm: React.FC = () => {
                 placeholder="Username" 
               />
               <i className="fas fa-user icon"></i>
-              {errors.username && <p className={styles.error}>{errors.username.message}</p>}
+              {errors.username && <small className={styles.error}>{errors.username.message}</small>}
             </div>
             <div className={styles['inp-box']}>
               <input 
@@ -42,7 +42,7 @@ const RegisterForm: React.FC = () => {
                 placeholder="Email" 
               />
               <i className="fas fa-envelope icon"></i>
-              {errors.email && <p className={styles.error}>{errors.email.message}</p>}
+              {errors.email && <small className={styles.error}>{errors.email.message}</small>}
             </div>
             <div className={styles['inp-box']}>
               <input 
@@ -52,7 +52,7 @@ const RegisterForm: React.FC = () => {
                 placeholder="Secure Password" 
               />
               <i className="fas fa-lock icon"></i>
-              {errors.password && <p className={styles.error}>{errors.password.message}</p>}
+              {errors.password && <small className={styles.error}>{errors.password.message}</small>}
             </div>
             <div className={styles['btn-box']}>
               <button type="submit">Register</button>

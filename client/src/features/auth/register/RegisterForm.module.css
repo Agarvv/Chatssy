@@ -196,6 +196,11 @@ form {
   text-decoration: none;
 }
 
+.error {
+    padding: 5px;
+    color: var(--danger);
+}
+
 @media (max-width: 600px) {
   .container .wrapper {
     width: 90%;
