@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginForm from './features/auth/login/LoginForm'; 
 import RegisterForm from './features/auth/register/RegisterForm'; 
-import SendResetPasswordUrlForm from './features/send-reset-password-url/SendResetPasswordUrlForm'; 
-import ResetPasswordForm from './features/auth/ResetPasswordForm'
+import SendResetPasswordUrlForm from './features/auth/send-reset-password-url/SendResetPasswordUrlForm'; 
+import ResetPasswordForm from './features/auth/reset-password/ResetPasswordForm'
 
 
 export const AppRoutes = () => (
