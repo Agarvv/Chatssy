@@ -32,7 +32,7 @@ const SendResetPasswordUrlForm: React.FC = () => {
                 type="email"
                 placeholder="Email"
                 required
-                {...register("email", emailValidation)} {/* Aquí pasas las validaciones correctamente */}
+                {...register("email", emailValidation)} 
               />
               {errors.email && <small className="formError">{errors.email.message}</small>}
             </div>
