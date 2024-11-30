@@ -27,7 +27,7 @@ export const useRegister = () => {
       dispatch(setError('Something Went Wrong...'));  
     },
     onSettled: () => {
-      dispatch(clearMessages());
+      console.log('finalized')
     }
   });
 };
