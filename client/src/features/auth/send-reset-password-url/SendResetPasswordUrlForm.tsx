@@ -1,4 +1,4 @@
-import styles from './SendResetPasswordUrlForm.module.css';
+import styles from './SendResetPasswordForm.module.css';
 import { FormValues } from './types'
 import { useForm } from 'react-hook-form';
 import { emailValidation } from 'src/outils/form-validators';
