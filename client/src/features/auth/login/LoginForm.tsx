@@ -25,17 +25,17 @@ const LoginForm: React.FC = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className={styles['inp-box']}>
               <input
-                className={styles.email}
+                className="formError"
                 type="email"
                 placeholder="Email"
                 {...register('email', emailValidation)}
               />
-              {errors.email && <small className={styles.error}>{errors.email.message}</small>}
+              {errors.email && <small className="formError">{errors.email.message}</small>}
               <i className="fas fa-envelope icon"></i>
             </div>
             <div className={styles['inp-box']}>
               <input
-                className={styles.password}
+                className="formError"
                 type="password"
                 placeholder="Your Password"
                 {...register('password', passwordValidation)}

@@ -38,7 +38,7 @@ const ResetPasswordForm = () => {
                 placeholder="New Password"
                 required
               />
-              {errors.password && <small>{errors.password.message}</small>}
+              {errors.password && <small className="formError">{errors.password.message}</small>}
             </div>
             <div className={styles['inp-box']}>
               <input
@@ -47,7 +47,7 @@ const ResetPasswordForm = () => {
                 placeholder="Confirm New Password"
                 required
               />
-              {errors.confirmPassword && <small>{errors.confirmPassword.message}</small>}
+              {errors.confirmPassword && <small className="formError">{errors.confirmPassword.message}</small>}
             </div>
             <div className={styles['btn-box']}>
               <button type="submit">Reset Password</button>
