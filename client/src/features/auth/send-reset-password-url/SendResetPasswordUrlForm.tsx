@@ -2,7 +2,7 @@ import styles from './SendResetPasswordForm.module.css';
 import { FormValues } from './types'
 import { useForm } from 'react-hook-form';
 import { emailValidation } from 'src/outils/form-validators';
-import { useSubmit } from 'src/hooks/useSubmit';
+import useSubmit from 'src/hooks/useSubmit';
 
 const SendResetPasswordUrlForm: React.FC = () => {
     
