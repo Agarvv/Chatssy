@@ -11,6 +11,7 @@ const RegisterForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log('data to send', data);
+    console.log('errors', errors)
     mutate(data);
   };
 
