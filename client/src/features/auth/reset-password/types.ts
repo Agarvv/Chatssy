@@ -1,4 +1,4 @@
-export type FormValues {
+export type FormValues = {
     password: string,
     confirmPassword: string 
 }

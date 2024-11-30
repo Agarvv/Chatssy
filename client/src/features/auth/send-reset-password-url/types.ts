@@ -1,3 +1,3 @@
-export type FormValue {
+export type FormValue = {
     email: string 
 }
