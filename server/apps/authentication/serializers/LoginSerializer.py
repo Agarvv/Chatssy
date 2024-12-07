@@ -1,16 +1,16 @@
 from rest_framework import serializers
 from apps.user.models import User
-from rest_framework.exceptions import ValidationError
 
-class LoginSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['email', 'password']
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField()
 
     def validate_email(self, value):
+        if not User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("This email does not exist.")
         return value
 
     def validate_password(self, value):
         if not value:
-            raise ValidationError('Password Is Required')
+            raise serializers.ValidationError("Password is required.")
         return value

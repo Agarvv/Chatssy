@@ -28,6 +28,7 @@ def register(request):
 # Login user
 @api_view(["POST"])
 def login(request):
+    print(request.data)
     serializer = LoginSerializer(data=request.data)
     if serializer.is_valid():
         
@@ -48,9 +49,9 @@ def login(request):
             samesite='None'
         )
         return response
-
+    print(serializer.errors)
     return Response({
-        "errors": serializer.errors
+        "val errors": serializer.errors
     }, status=400)
 
 
