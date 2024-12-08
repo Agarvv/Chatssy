@@ -3,8 +3,8 @@ from django.core.exceptions import ValidationError
 from datetime import timedelta, datetime
 
 class ResetToken(models.Model):
-    user_email = models.EmailField(unique=True)
-    token = models.CharField(max_length=64)
+    user_email = models.EmailField()
+    token = models.CharField()
     expiration_date = models.DateTimeField()  
 
     def clean(self):
