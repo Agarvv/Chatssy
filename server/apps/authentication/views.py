@@ -61,7 +61,8 @@ def send_reset_url(request):
     serializer = SendResetPasswordSerializer(data=request.data)  
     
     if serializer.is_valid():  
-        send_reset_password_email(serializer)  
+        user_email = serializer.validated_data['email']
+        send_reset_password_email(user_email)  
         return Response({
             "message": "Check Your Email!"
         })

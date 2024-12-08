@@ -32,9 +32,8 @@ def login_user(serializer, request):
         return None 
     
 
-def send_reset_password_email(serializer):
+def send_reset_password_email(user_email):
     token = secrets.token_urlsafe(32)
-    user_email = serializer.validated_data['email']
     expire_date = timezone.now() + timedelta(hours=1)
     
     ResetToken.objects.create(
