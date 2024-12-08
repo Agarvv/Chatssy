@@ -9,7 +9,7 @@ const SendResetPasswordUrlForm: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
   
   const { mutate } = useSubmit({
-      url: '/api/chatssy/auth/send_reset_url/',
+      url: '/auth/send_reset_url/',
       successMessage: 'Check Your Email.',
       errorMessage: 'Could not send email...'
   });
