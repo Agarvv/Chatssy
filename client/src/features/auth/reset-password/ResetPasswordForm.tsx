@@ -4,7 +4,7 @@ import { FormValues } from './types';
 import { useForm } from 'react-hook-form';
 import { passwordValidation } from 'src/outils/form-validators';
 import useSubmit from 'src/hooks/useSubmit';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const ResetPasswordForm = () => {
   const {
@@ -19,10 +19,7 @@ const ResetPasswordForm = () => {
     errorMessage: 'Your URL may have expired or something went wrong...',
   });
 
-  const location = useLocation();
-  const urlParams = new URLSearchParams(location.search);
-  const token = urlParams.get('token'); 
-  const email = urlParams.get('email'); 
+  const { token, email } = useParams(); 
 
   const onSubmit = (data: FormValues) => {
     const requestData = {
@@ -30,7 +27,6 @@ const ResetPasswordForm = () => {
       token,
       email,
     };
-    console.log('data sending', requestData)
     mutate(requestData); 
   };
 
