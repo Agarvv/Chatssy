@@ -6,7 +6,7 @@ import { setLoading, setSuccess, setError, clearMessages } from 'src/store/apiSt
 import { AppDispatch } from 'src/store/apiStatus/apiStatusStore';
 
 const loginUser = async (data: FormValues): Promise<any> => {
-  const response = await axiosInstance.post('/auth/login', data);
+  const response = await axiosInstance.post('/auth/login/', data);
   return response.data;
 };
 
