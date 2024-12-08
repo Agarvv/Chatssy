@@ -15,7 +15,7 @@ from .authService import register_user, login_user, send_reset_password_email, r
 def register(request):
     serializer = RegisterSerializer(data=request.data)
     if serializer.is_valid():
-        register_user(serializer)
+        register_user(serializer.validated_data['email'])
         return Response({
             "message": "¡Welcome To Chatssy!"
         })
