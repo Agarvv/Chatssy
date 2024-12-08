@@ -58,7 +58,7 @@ def send_reset_password_email(user_email):
 
 def reset_password(serializer):
     user_email = serializer.validated_data['email']
-    user_new_password = serializer.validated_data['new_password']
+    user_new_password = serializer.validated_data['password']
     
     # reset token received from the frontend 
     received_reset_token = serializer.validated_data['token']
