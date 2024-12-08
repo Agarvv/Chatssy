@@ -68,7 +68,7 @@ def reset_password(serializer):
     resetToken = ResetToken.get_object_or_404(ResetToken, user_email=user_email, token=received_reset_token)
     
     if resetToken.is_expired():
-        raise Error('Your Token Is Expired')
+        raise Exception('Your Token Is Expired')
     
     hashed_password = make_password(user_new_password)
     user.password = hashed_password
