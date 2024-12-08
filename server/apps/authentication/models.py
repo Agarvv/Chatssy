@@ -4,7 +4,7 @@ from datetime import timedelta, datetime
 
 class ResetToken(models.Model):
     user_email = models.EmailField()
-    token = models.CharField()
+    token = models.CharField(max_length=360)
     expiration_date = models.DateTimeField()  
 
     def clean(self):

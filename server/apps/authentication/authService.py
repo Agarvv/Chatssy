@@ -49,10 +49,11 @@ def send_reset_password_email(user_email):
     send_mail(
     'Reset Your Password At Chatssy',
     f"Click on this URL to reset Your password, this will expire in one hour: {url}",
-    'casluagarv@gmail.com',
-    [user_email],  
+    'no-reply@chatssy.com', 
+    ['caluagarv@gmail.com'], 
     fail_silently=False
     )
+
     
 
 def reset_password(serializer):

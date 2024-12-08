@@ -4,6 +4,7 @@ from apps.user.models import User
 
 class SendResetPasswordSerializer(serializers.ModelSerializer):
     class Meta:
+        model = User
         fields = ['email']
     
     def validate_email(self, value):

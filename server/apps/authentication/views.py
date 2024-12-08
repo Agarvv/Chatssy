@@ -58,18 +58,10 @@ def login(request):
 # Send reset password URL to user email
 @api_view(["POST"])
 def send_reset_url(request):
-    serializer = SendResetPasswordSerializer(data=request.data)  
-    
-    if serializer.is_valid():  
-        user_email = serializer.validated_data['email']
-        send_reset_password_email(user_email)  
+        send_reset_password_email(request.data['email'])  
         return Response({
             "message": "Check Your Email!"
         })
-    
-    return Response({
-        "errors": serializer.errors
-    }, status=400)
 
 
 # Reset user password
