@@ -6,5 +6,5 @@ urlpatterns = [
   path('register/', register, name='register'),
   path('login/', login, name='login'),
   path('send_reset_url/', send_reset_password_email, name="send_reset_password_url"),
-  path('reset_password', reset_password, name="reset_password")
+  path('reset_password/', reset_password, name="reset_password")
 ]

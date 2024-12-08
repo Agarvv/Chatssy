@@ -13,7 +13,7 @@ const ResetPasswordForm = () => {
   } = useForm<FormValues>();
 
   const { mutate } = useSubmit({
-    url: '/reset-password',
+    url: '/api/chatssy/auth/reset_password/',
     successMessage: 'Your password has been reset!',
     errorMessage: 'Your URL may have expired or something went wrong...',
   });
