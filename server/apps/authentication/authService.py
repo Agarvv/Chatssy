@@ -9,6 +9,8 @@ from django.utils import timezone
 from datetime import timedelta
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.hashers import make_password
+from rest_framework.exceptions import AuthenticationFailed
+
 
 
 def register_user(serializer):
@@ -23,13 +25,14 @@ def register_user(serializer):
 def login_user(serializer, request):
     user = authenticate(request, email=serializer.validated_data['email'],
                         password=serializer.validated_data['password'])
-    if user is not None:
-        login(request, user)
-        jwt = generate_jwt(user)
+                        
+    if not user:
+        raise AuthenticationFailed('Your Email Or Password Is Not Valid.')
         
-        return jwt
-    else:
-        return None 
+    login(request, user)
+    jwt = generate_jwt(user)
+        
+    return jwt
     
 
 def send_reset_password_email(user_email):
