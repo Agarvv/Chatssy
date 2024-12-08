@@ -60,8 +60,8 @@ def login(request):
 def send_reset_url(request):
     serializer = SendResetPasswordSerializer(data=request.data)  
     
-    if serializer.is_valid():
-        send_reset_password_email(serializer)
+    if serializer.is_valid():  
+        send_reset_password_email(serializer)  
         return Response({
             "message": "Check Your Email!"
         })

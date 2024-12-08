@@ -52,7 +52,6 @@ def send_reset_password_email(serializer):
         fail_silently=False
     )
     
-    
 
 def reset_password(serializer):
     user_email = serializer.validated_data['email']
