@@ -59,7 +59,7 @@ def login(request):
 @api_view(["POST"])
 def send_reset_url(request):
         print('request data', request.data)
-        serializer = SendResetPasswordSerializer(request.data)
+        serializer = SendResetPasswordSerializer(request.POST.get('email'))
         send_reset_password_email(request.data['email'])  
         return Response({
             "message": "Check Your Email!"
