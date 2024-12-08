@@ -72,7 +72,7 @@ def send_reset_password(request):
 
 # Reset user password
 @api_view(["POST"])
-def reset_password(request):
+def reset_password_view(request):
     serializer = ResetPasswordSerializer(data=request.data)
     if serializer.is_valid():
         reset_password(serializer)
