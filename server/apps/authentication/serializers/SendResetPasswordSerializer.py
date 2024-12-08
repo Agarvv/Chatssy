@@ -7,10 +7,10 @@ class SendResetPasswordSerializer(serializers.ModelSerializer):
         fields = ['email']
     
     def validate_email(self, value):
-        if not self.email:
+        if not value:  
             raise ValidationError('Email Id Required')
             
-        if not User.objects.filter(email = self.email).exists():
+        if not User.objects.filter(email=value).exists():  
             raise ValidationError('That Email Does Not Exist')
             
         return value
