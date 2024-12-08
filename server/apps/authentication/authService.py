@@ -44,11 +44,11 @@ def send_reset_password_email(user_email):
     
     url = f"https://chatssy.vercel.app/send-reset-url/{token}/{user_email}"
     send_mail(
-        'Reset Your Password At Chatssy',
-        f"Click on this URL to reset Your password, this will expire in one hour: {url}",
-        'casluagarv@gmail.com',
-        user_email,
-        fail_silently=False
+    'Reset Your Password At Chatssy',
+    f"Click on this URL to reset Your password, this will expire in one hour: {url}",
+    'casluagarv@gmail.com',
+    [user_email],  
+    fail_silently=False
     )
     
 
