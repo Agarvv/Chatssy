@@ -39,7 +39,7 @@ def send_reset_password_email(user_email):
     ResetToken.objects.create(
         user_email=user_email,
         token=token,
-        expire_date=expire_date
+        expiration_date=expire_date
     )
     
     url = f"https://chatssy.vercel.app/send-reset-url/{token}/{user_email}"
