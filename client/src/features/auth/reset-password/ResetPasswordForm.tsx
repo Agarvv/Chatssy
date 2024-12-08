@@ -3,7 +3,8 @@ import styles from './ResetPasswordForm.module.css';
 import { FormValues } from './types';
 import { useForm } from 'react-hook-form';
 import { passwordValidation } from 'src/outils/form-validators';
-import useSubmit  from 'src/hooks/useSubmit';
+import useSubmit from 'src/hooks/useSubmit';
+import { useLocation } from 'react-router-dom';
 
 const ResetPasswordForm = () => {
   const {
@@ -18,8 +19,19 @@ const ResetPasswordForm = () => {
     errorMessage: 'Your URL may have expired or something went wrong...',
   });
 
+  const location = useLocation();
+  const urlParams = new URLSearchParams(location.search);
+  const token = urlParams.get('token'); 
+  const email = urlParams.get('email'); 
+
   const onSubmit = (data: FormValues) => {
-    mutate(data); 
+    const requestData = {
+      ...data,
+      token,
+      email,
+    };
+    console.log('data sending', requestData)
+    mutate(requestData); 
   };
 
   return (
@@ -39,15 +51,6 @@ const ResetPasswordForm = () => {
                 required
               />
               {errors.password && <small className="formError">{errors.password.message}</small>}
-            </div>
-            <div className={styles['inp-box']}>
-              <input
-                {...register('confirmPassword', passwordValidation)}
-                type="password"
-                placeholder="Confirm New Password"
-                required
-              />
-              {errors.confirmPassword && <small className="formError">{errors.confirmPassword.message}</small>}
             </div>
             <div className={styles['btn-box']}>
               <button type="submit">Reset Password</button>
