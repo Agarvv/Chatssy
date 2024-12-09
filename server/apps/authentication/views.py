@@ -7,7 +7,7 @@ from .serializers.RegisterSerializer import RegisterSerializer
 from .serializers.LoginSerializer import LoginSerializer 
 from .serializers.SendResetPasswordSerializer import SendResetPasswordSerializer
 from .serializers.ResetPasswordSerializer import ResetPasswordSerializer
-from .authService import register_user, login_user, send_reset_password_email, reset_password
+from .authService import register_user, login_user, send_reset_password_email, reset_password, check_auth
 
 
 
@@ -84,3 +84,22 @@ def reset_password_view(request):
     return Response({
         "errors": serializer.errors
     }, status=400)
+
+
+def check_if_authenticated(request):
+    jwt_token = request.cookies.get('jwt')
+    if jwt_token:
+        is_valid = check_auth(jwt_token)
+        if is_valid:
+            return Response({
+                "message": "You are authenticated!"
+            })
+        return Response({
+            "message": "Your Aren't authenticated."
+        })
+    return Response({
+        "message": "Please log in."
+    })
+  
+    
+        

@@ -2,7 +2,7 @@
 from django.contrib.auth import authenticate, login, logout
 from apps.user.models import User
 from .models import ResetToken
-from apps.util.JwtUtil import generate_jwt
+from apps.util.JwtUtil import generate_jwt, verify_jwt
 from django.core.mail import send_mail
 import secrets 
 from django.utils import timezone
@@ -73,3 +73,11 @@ def reset_password(serializer):
     user.password = hashed_password
     user.save()
     resetToken.delete()
+
+
+def check_auth(jwt_token):
+    try:
+        verify_jwt(jwt_token)
+        return True
+    except:
+        return False
