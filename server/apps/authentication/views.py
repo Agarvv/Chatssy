@@ -85,7 +85,7 @@ def reset_password_view(request):
         "errors": serializer.errors
     }, status=400)
 
-
+@api_view(["GET"])
 def check_if_authenticated(request):
     jwt_token = request.cookies.get('jwt')
     if jwt_token:
