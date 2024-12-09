@@ -9,6 +9,7 @@ from django.utils import timezone
 from datetime import timedelta
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.hashers import make_password
+from .exceptions import ResetPasswordTokenExpired
 
 
 def register_user(serializer):
@@ -67,7 +68,7 @@ def reset_password(serializer):
     resetToken = get_object_or_404(ResetToken, user_email=user_email, token=received_reset_token)
     
     if resetToken.is_expired():
-        raise Exception('Your Token Is Expired')
+        raise ResetPasswordTokenExpired('Your Token Is Expired', 401)
     
     hashed_password = make_password(user_new_password)
     user.password = hashed_password

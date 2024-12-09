@@ -10,6 +10,7 @@ from .serializers.ResetPasswordSerializer import ResetPasswordSerializer
 from .authService import register_user, login_user, send_reset_password_email, reset_password
 
 
+
 @api_view(["POST"])
 # Register user
 def register(request):
