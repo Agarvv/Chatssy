@@ -4,7 +4,7 @@ import LoginForm from './features/auth/login/LoginForm';
 import RegisterForm from './features/auth/register/RegisterForm'; 
 import SendResetPasswordUrlForm from './features/auth/send-reset-password-url/SendResetPasswordUrlForm'; 
 import ResetPasswordForm from './features/auth/reset-password/ResetPasswordForm'
-
+import HomePage from "./pages/home/HomePage";
 
 export const AppRoutes = () => (
   <Router>
@@ -20,6 +20,10 @@ export const AppRoutes = () => (
          <Route path="/reset-password/:token/:email" element={ <ResetPasswordForm /> }/> 
          
      { /* END OF AUTH */} 
+
+     {/* HOME */ } 
+       <Route path='/' element={ <HomePage /> }/>
+     {/* END OF HOME */ } 
      </Routes>
   </Router> 
 )

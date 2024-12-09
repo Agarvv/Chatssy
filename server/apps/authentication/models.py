@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from datetime import timedelta, datetime
+from django.utils.timezone import now
+
 
 class ResetToken(models.Model):
     user_email = models.EmailField()
@@ -18,4 +20,4 @@ class ResetToken(models.Model):
             
         
     def is_expired(self):
-        return datetime.now() > self.expiration_date
+        return now() > self.expiration_date

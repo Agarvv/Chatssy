@@ -6,7 +6,7 @@ import SearchAsideContacts from './search-aside-contacts/SearchAsideContacts'
 import styles from './ContactsAside.module.css'
 
 interface Props {
-    contacts: UserContact[] 
+    contacts: UserContact[] | []
 }
 
 // This aside shows user contacts 

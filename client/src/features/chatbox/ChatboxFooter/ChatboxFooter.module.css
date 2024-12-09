@@ -1,0 +1,62 @@
+footer {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    background-color: var(--app_theme);
+    margin-top: auto;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    color: var(--app_theme_font);
+  }
+  
+  .fMediaButtons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .fMediaButtons div {
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #444;
+    transition: all 0.3s ease;
+  }
+  
+  .fMediaButtons div:hover {
+    background-color: #3b3e47;
+  }
+  
+  .fInp {
+    flex: 1;
+  }
+  
+  .fInp input {
+    width: 100%;
+    padding: 10px;
+    height: 38px;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: var(--app_theme_font);
+  }
+  
+  .fInp input:focus {
+    border-color: #6e7a96;
+    background-color: #fff;
+  }
+  
+  .fSubmit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6e7a96;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .fSubmit:hover {
+    background-color: #576a80;
+  }
+  
