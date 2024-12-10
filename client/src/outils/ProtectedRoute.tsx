@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { ReactNode, useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
-import axiosInstance from 'src/config/axiosConfig'; 
+import axiosInstance from 'src/config/axiosConfig';
 
-const ProtectedRoute = ({ children }) => {
-  const [auth, setAuth] = useState(null); 
-  const [error, setError] = useState(null);  
+interface ProtectedRouteProps {
+  children: ReactNode;
+}
+
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+  const [auth, setAuth] = useState<boolean | null>(null); 
+  const [error, setError] = useState<any>(null);  
 
   useEffect(() => {
-    axiosInstance.get('/auth/check/')  
+    axiosInstance.get('/auth/check/')
       .then((response) => {
         if (response.status === 200) {
           setAuth(true);  
@@ -16,14 +20,14 @@ const ProtectedRoute = ({ children }) => {
       .catch((error) => {
         setAuth(false);  
         setError(error);
-      })
+      });
   }, []);
 
   if (error || !auth) {
     return <Navigate to="/login" replace />;  
   }
 
-  return children;  
+  return <>{children}</>;  
 };
 
 export default ProtectedRoute;
