@@ -13,6 +13,7 @@ const Chatbox = () => {
       <div className={styles.messageList}>
         <Message />
       </div>
+      
 
       <ChatboxFooter />
     </main>

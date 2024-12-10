@@ -1,12 +1,14 @@
 import React from 'react';
 import styles from './ChatboxHeader.module.css';
+import logo from 'src/logo.svg';
+
 
 const ChatboxHeader = () => {
   return (
     <header className={styles.header}>
       <div className={styles.hUser}>
         <div className={styles.hUserImg}>
-          <img src="Screenshot_20240928-011835.png" alt="Profile" />
+          <img src={logo} alt="Profile" />
           <div className={styles.hUserStatus}></div>
         </div>
         <div className={styles.hUserData}>
