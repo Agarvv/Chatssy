@@ -18,7 +18,7 @@ from rest_framework.exceptions import NotAuthenticated
 def register(request):
     serializer = RegisterSerializer(data=request.data)
     if serializer.is_valid():
-        register_user(serializer.validated_data['email'])
+        register_user(serializer)
         return Response({
             "message": "¡Welcome To Chatssy!"
         })
