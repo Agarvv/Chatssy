@@ -3,6 +3,14 @@
     
 }
 
+.chatbox {
+    width: 100%;
+}
+
+.contacts {
+    width: 100%;
+}
+
 @media(max-width: 600px) {
     .chatbox {
        display: none;   
