@@ -10,28 +10,23 @@ import ProtectedRoute from 'src/outils/ProtectedRoute'
 export const AppRoutes = () => (
   <Router>
      <Routes>
-     {/* AUTH */ } 
-     
+     {/* AUTH */} 
          <Route path="/register" element={ <RegisterForm /> }/> 
-         
          <Route path="/login" element={ <LoginForm />}/> 
-         
          <Route path="/send-reset-password" element={ <SendResetPasswordUrlForm/> }/> 
-         
          <Route path="/reset-password/:token/:email" element={ <ResetPasswordForm /> }/> 
-         
      { /* END OF AUTH */} 
 
-     {/* HOME */ } 
+     {/* HOME */} 
        <Route 
-       path='/' 
-       element={ 
-      <ProtectedRoute> 
-       <HomePage /> 
-      <ProtectedRoute />
-       }
+         path='/' 
+         element={ 
+           <ProtectedRoute> 
+             <HomePage /> 
+           </ProtectedRoute>
+         }
        />
-     {/* END OF HOME */ } 
+     {/* END OF HOME */} 
      </Routes>
   </Router> 
 )
