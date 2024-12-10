@@ -1,3 +1,14 @@
 .mainContainer {
     display: flex;
+    
+}
+
+@media(max-width: 600px) {
+    .chatbox {
+       display: none;   
+    }
+    
+    .contacts {
+        flex: 1;
+    }
 }
