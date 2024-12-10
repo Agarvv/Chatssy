@@ -16,9 +16,12 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
         withCredentials: true 
     })
       .then((response) => {
-          console.log("response succeded", response)
-          if(response.data.message == "OK") {
+          console.log("response succeded", response.data)
+          if(response.data.message === 'OK') {
+              console.log("authenticated")
               setAuth(true) 
+          } else {
+              console.log('not authenticated')
           }
       })
       .catch((error) => {
