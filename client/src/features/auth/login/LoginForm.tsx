@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import styles from './LoginForm.module.css';
 import { FormValues } from './types';
 import { emailValidation, passwordValidation } from 'src/outils/form-validators';
@@ -48,10 +49,10 @@ const LoginForm: React.FC = () => {
             </div>
             <div className={styles['form-links']}>
               <div>
-                <a href="#">Forgot Password</a>
+                <Link to="/send-reset-password">Forgot Password</Link>
               </div>
               <div>
-                <a href="#">Don't Have An Account</a>
+                <Link to="/register">Don't Have An Account</Link>
               </div>
             </div>
           </form>

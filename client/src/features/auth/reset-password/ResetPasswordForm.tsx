@@ -6,6 +6,8 @@ import { passwordValidation } from 'src/outils/form-validators';
 import useSubmit from 'src/hooks/useSubmit';
 import { useParams } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
+
 const ResetPasswordForm = () => {
   const {
     register,
@@ -53,7 +55,7 @@ const ResetPasswordForm = () => {
             </div>
           </form>
           <div className={styles['form-links']}>
-            <a href="/login">Go Back To Login</a>
+            <Link to="/login">Go Back To Login</Link>
           </div>
         </div>
       </div>

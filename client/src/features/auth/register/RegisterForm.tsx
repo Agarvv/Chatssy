@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import styles from './RegisterForm.module.css';
 import { FormValues } from './types';
 import { usernameValidation, emailValidation, passwordValidation } from 'src/outils/form-validators';
@@ -7,12 +8,11 @@ import { useRegister } from './useRegister';
 
 const RegisterForm: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
-  
   const { mutate } = useRegister();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log('data to send', data);
-    console.log('errors', errors)
+    console.log('errors', errors);
     mutate(data);
   };
 
@@ -60,15 +60,13 @@ const RegisterForm: React.FC = () => {
             </div>
             <div className={styles['form-links']}>
               <div>
-                <a href="#">Already Have An Account?</a>
+                <Link to="/login">Already Have An Account?</Link>
               </div>
             </div>
           </form>
           <div className={styles['social-login']}>
             <p className={styles['social-login-title']}>Or log in with</p>
-            <div className={styles['social-btns']}>
-
-            </div>
+            <div className={styles['social-btns']}></div>
           </div>
         </div>
       </div>

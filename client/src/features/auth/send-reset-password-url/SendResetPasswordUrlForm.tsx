@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { emailValidation } from 'src/outils/form-validators';
 import useSubmit from 'src/hooks/useSubmit';
 
+import { Link } from 'react-router-dom';
+
 const SendResetPasswordUrlForm: React.FC = () => {
     
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
@@ -41,7 +43,7 @@ const SendResetPasswordUrlForm: React.FC = () => {
             </div>
           </form>
           <div className={styles['form-links']}>
-            <a href="/login">Go Back To Login</a>
+            <Link to="/login">Go Back To Login</Link>
           </div>
         </div>
       </div>
