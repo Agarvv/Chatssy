@@ -11,7 +11,9 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const [error, setError] = useState<any>(null);  
 
   useEffect(() => {
-    axiosInstance.get('/auth/check/')
+    axiosInstance.get('/auth/check/', {
+        withCredentials: true 
+    })
       .then((response) => {
         if (response.status === 200) {
           setAuth(true);  
