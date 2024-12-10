@@ -11,12 +11,9 @@ const HomePage = () => {
           <Header />
           
           <div className={styles.mainContainer}>
-            <div className={styles.contacts}>
                 <ContactsAside contacts={[]}/> 
-            </div> 
-             <div className={styles.chatbox}>
+
                  <Chatbox /> 
-             </div>
           </div>
         </>
     )

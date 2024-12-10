@@ -5,6 +5,7 @@ import RegisterForm from './features/auth/register/RegisterForm';
 import SendResetPasswordUrlForm from './features/auth/send-reset-password-url/SendResetPasswordUrlForm'; 
 import ResetPasswordForm from './features/auth/reset-password/ResetPasswordForm'
 import HomePage from "./pages/home/HomePage";
+import ProtectedRoute from 'src/outils/ProtectedRoute'
 
 export const AppRoutes = () => (
   <Router>
@@ -22,7 +23,14 @@ export const AppRoutes = () => (
      { /* END OF AUTH */} 
 
      {/* HOME */ } 
-       <Route path='/' element={ <HomePage /> }/>
+       <Route 
+       path='/' 
+       element={ 
+      <ProtectedRoute> 
+       <HomePage /> 
+      <ProtectedRoute />
+       }
+       />
      {/* END OF HOME */ } 
      </Routes>
   </Router> 
