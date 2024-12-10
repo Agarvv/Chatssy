@@ -8,6 +8,8 @@ from .serializers.LoginSerializer import LoginSerializer
 from .serializers.SendResetPasswordSerializer import SendResetPasswordSerializer
 from .serializers.ResetPasswordSerializer import ResetPasswordSerializer
 from .authService import register_user, login_user, send_reset_password_email, reset_password, check_auth
+from rest_framework import status
+from rest_framework.exceptions import NotAuthenticated
 
 
 
@@ -94,12 +96,8 @@ def check_if_authenticated(request):
             return Response({
                 "message": "You are authenticated!"
             })
-        return Response({
-            "message": "Your Aren't authenticated."
-        })
-    return Response({
-        "message": "Please log in."
-    })
-  
+        raise NotAuthenticated("Your token is invalid.")
+    raise NotAuthenticated("Please log in.")
+
     
         
