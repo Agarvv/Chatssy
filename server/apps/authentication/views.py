@@ -94,7 +94,7 @@ def check_if_authenticated(request):
         is_valid = check_auth(jwt_token)
         if is_valid:
             return Response({
-                "message": "You are authenticated!"
+                "message": "OK"
             })
         raise NotAuthenticated("Your token is invalid.")
     raise NotAuthenticated("Please log in.")

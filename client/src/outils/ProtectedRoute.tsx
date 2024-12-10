@@ -17,9 +17,9 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
     })
       .then((response) => {
           console.log("response succeded", response)
-        if (response.status === 200) {
-          setAuth(true);  
-        }
+          if(response.data.message == "OK") {
+              setAuth(true) 
+          }
       })
       .catch((error) => {
         console.log('error ocurred', error)
