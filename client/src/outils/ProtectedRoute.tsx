@@ -26,7 +26,9 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   }, []);
 
   if (error || !auth) {
-    return <Navigate to="/login" replace />;  
+      console.log('error', error)
+      console.log('is auth', auth)
+   // return <Navigate to="/login" replace />;  
   }
 
   return <>{children}</>;  
