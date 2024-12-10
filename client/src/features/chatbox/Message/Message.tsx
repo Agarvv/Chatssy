@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Message.module.css';
+import logo from 'src/logo.svg';
 
 const Message = () => {
   return (
     <div className={styles.message}>
       <div className={styles.messageUser}>
-        <img src="Screenshot_20240928-011835.png" alt="User" />
+        <img src={logo} alt="User" />
       </div>
       <div className={styles.messageContent}>
         <div className={styles.messageDate}>
