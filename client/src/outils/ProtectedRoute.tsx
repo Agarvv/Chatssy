@@ -11,15 +11,18 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const [error, setError] = useState<any>(null);  
 
   useEffect(() => {
+      console.log('verifyinh auth...')
     axiosInstance.get('/auth/check/', {
         withCredentials: true 
     })
       .then((response) => {
+          console.log("response succeded")
         if (response.status === 200) {
           setAuth(true);  
         }
       })
       .catch((error) => {
+        console.log('error ocurred', error)
         setAuth(false);  
         setError(error);
       });
