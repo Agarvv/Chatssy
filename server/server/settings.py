@@ -52,6 +52,7 @@ LOGGING = {
 
 INSTALLED_APPS = [
     'corsheaders',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -160,3 +161,11 @@ ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = [
    'https://chatssy.vercel.app'
 ]
+
+ASGI_APPLICATION = 'server.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
