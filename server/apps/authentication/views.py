@@ -87,7 +87,7 @@ def reset_password_view(request):
 
 @api_view(["GET"])
 def check_if_authenticated(request):
-    jwt_token = request.cookies.get('jwt')
+    jwt_token = request.COOKIES.get('jwt')
     if jwt_token:
         is_valid = check_auth(jwt_token)
         if is_valid:
