@@ -28,6 +28,9 @@ export const useLogin = () => {
     onError: (error: Error) => {
       console.error('Something went wrong..:', error); // debug
       dispatch(setError('Something went wrong...'))
+    },
+    onSettled: () => {
+      dispatch(clearMessages())
     }
   });
 };
