@@ -1,0 +1,14 @@
+.chatbox {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+}
+
+.message-list {
+  flex: 1; 
+  overflow-y: auto;
+}
+
+.chatbox-footer {
+  
+}

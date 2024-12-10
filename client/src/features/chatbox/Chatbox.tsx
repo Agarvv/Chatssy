@@ -6,7 +6,7 @@ import ChatboxFooter from './ChatboxFooter/ChatboxFooter';
 
 const Chatbox = () => {
   return (
-    <main>
+    <main className="chatbox">
      <ChatboxHeader />
       
       <div className="message-list">
