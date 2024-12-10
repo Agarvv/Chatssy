@@ -35,12 +35,12 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   }
 
   if (error) {
-    console.error('Error de autenticación:', error);
+    console.error('Authentication error', error);
     return <Navigate to="/login" replace />;
   }
 
   if (auth === false) {
-    console.warn('Usuario no autenticado');
+    console.warn('User not auth');
     return <Navigate to="/login" replace />;
   }
 
