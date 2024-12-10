@@ -151,10 +151,12 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+CORS_ORIGIN_ALLOW_ALL = True # i know is dangerous.
+CORS_ALLOW_CREDENTIALS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
 DEBUG=True
-ALLOWED_HOSTS = ['*'] # just for now
+ALLOWED_HOSTS = ['*'] 
 CORS_ALLOWED_ORIGINS = [
    'https://chatssy.vercel.app'
 ]
