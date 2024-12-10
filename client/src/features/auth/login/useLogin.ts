@@ -22,6 +22,7 @@ export const useLogin = () => {
         dispatch(setLoading()); 
     }, 
     onSuccess: (data: any) => {
+      dispatch(clearMessages())
       console.log('Welcome back!:', data); // debug
       navigate('/')
     },
@@ -30,7 +31,7 @@ export const useLogin = () => {
       dispatch(setError('Something went wrong...'))
     },
     onSettled: () => {
-      dispatch(clearMessages())
+   
     }
   });
 };

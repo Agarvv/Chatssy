@@ -22,6 +22,7 @@ export const useRegister = () => {
     },
     onSuccess: (data: any) => {
       console.log('Welcome!:', data); // debug
+      dispatch(clearMessages()) // if ok clear messages
       navigate('/login')
     },
     onError: (error: Error) => {
@@ -29,7 +30,7 @@ export const useRegister = () => {
       dispatch(setError('Something Went Wrong...'));  
     },
     onSettled: () => {
-      dispatch(clearMessages())
+      
     }
   });
 };
