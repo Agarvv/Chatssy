@@ -7,37 +7,40 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const [auth, setAuth] = useState<boolean | null>(null); 
-  const [error, setError] = useState<any>(null);  
+  const [auth, setAuth] = useState<boolean | null>(null);
+  const [error, setError] = useState<any>(null);
+
+  const checkAuth = async () => {
+    try {
+      const response = await axiosInstance.get('/auth/check/', {
+        withCredentials: true,
+      });
+      return response.data.message === 'OK';
+    } catch (err) {
+      setError(err);
+      return false;
+    }
+  };
 
   useEffect(() => {
-      console.log('verifyinh auth...')
-    axiosInstance.get('/auth/check/', {
-        withCredentials: true 
-    })
-      .then((response) => {
-          console.log("response succeded", response.data)
-          if(response.data.message === 'OK') {
-              console.log("authenticated")
-              setAuth(true) 
-          } else {
-              console.log('not authenticated')
-          }
-      })
-      .catch((error) => {
-        console.log('error ocurred', error)
-        setAuth(false);  
-        setError(error);
-      });
+    const fetchAuth = async () => {
+      const isAuth = await checkAuth();
+      setAuth(isAuth);
+    };
+    fetchAuth();
   }, []);
 
-  if (error || !auth) {
-      console.log('error', error)
-      console.log('is auth', auth)
-      return <Navigate to="/login" replace />;  
+  if (error) {
+    console.error('Error autentication:', error);
+    return <Navigate to="/login" replace />;
   }
 
-  return <>{children}</>;  
+  if (auth === false) {
+    console.warn('User not auth');
+    return <Navigate to="/login" replace />;
+  }
+
+  return <>{children}</>;
 };
 
 export default ProtectedRoute;
