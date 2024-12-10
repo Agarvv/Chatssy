@@ -16,7 +16,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
         withCredentials: true 
     })
       .then((response) => {
-          console.log("response succeded")
+          console.log("response succeded", response)
         if (response.status === 200) {
           setAuth(true);  
         }
