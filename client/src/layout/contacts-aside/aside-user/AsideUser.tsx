@@ -1,6 +1,6 @@
 import React from 'react'
 import sharedContactStyles from '../aside-contact/AsideContact.module.css'
-import { logo } from 'src/logo.svg'
+import logo from 'src/logo.svg'
 
 const AsideUser: React.FC = () => {
     return(
