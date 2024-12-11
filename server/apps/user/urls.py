@@ -1,7 +1,8 @@
 from django.urls import path
+from .views import UserViewSet
+from rest_framework.routers import DefaultRouter
 
-from .views import find_users
+router = DefaultRouter()
+router.register(r'users', ArticuloViewSet)
 
-urlpatterns = [
-  path('users/', find_users, name="find_all_users"),
-]
+urlpatterns = router.urls
