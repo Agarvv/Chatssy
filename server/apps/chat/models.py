@@ -1,4 +1,4 @@
-
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.timezone import now
 
@@ -6,7 +6,8 @@ class Chat(models.Model):
     sender_id = models.IntegerField()
     receiver_id = models.IntegerField()
     last_message = models.CharField()
-
+    type = models.CharField() # can be 'group' OR 'chat' meaning groupal chat or private user chat
+ 
     def clean(self):
         if self.sender_id == self.receiver_id:
             raise ValidationError("Sender and receiver cannot be the same.")

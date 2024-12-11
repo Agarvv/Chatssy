@@ -20,6 +20,8 @@ class User(AbstractBaseUser):
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=255) 
     profilePicture = models.URLField()
+    bio = models.CharField(max_length=255)
+
 
     objects = UserManager()
 

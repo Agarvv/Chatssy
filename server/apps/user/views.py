@@ -4,8 +4,9 @@ from rest_framework.decorators import action
 
 from .models import User 
 from .serializers.UserSerializer import UserSerializer
+from .serializers.UserDetailsSerializer import UserDetailsSerializer
 
-from .UserService import find_all_users
+from .userService import find_all_users
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -19,10 +20,12 @@ class UserViewSet(viewsets.ModelViewSet):
     # find user by id 
     def retrieve(self, request, pk=None):
         user = self.get_object() 
-        return Response({"user": user})# just for now
+        serializer = UserSerializer(user)  
+        return Response({"user": serializer.data})
         
     # find all users 
     def list(self, request):
-        serializer = UserSerializer(self.queryset)
-        return Response({ "users": serializer.data })
+       serializer = UserSerializer(self.queryset, many=True)  
+       return Response({"users": serializer.data})
+
         
