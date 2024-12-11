@@ -5,8 +5,8 @@ from django.utils.timezone import now
 class Chat(models.Model):
     sender_id = models.IntegerField()
     receiver_id = models.IntegerField()
-    last_message = models.CharField()
-    type = models.CharField() # can be 'group' OR 'chat' meaning groupal chat or private user chat
+    last_message = models.CharField(max_length=255)
+    type = models.CharField(max_length=255) # can be 'group' OR 'chat' meaning groupal chat or private user chat
  
     def clean(self):
         if self.sender_id == self.receiver_id:
@@ -14,14 +14,16 @@ class Chat(models.Model):
 
 class Message(models.Model):
     # Image, Video, Audio, Text 
-    type = models.CharField()
+    type = models.CharField(max_length=255)
     # Message text, Image URL, video URL, audio URL
-    value = models.CharField()
+    value = models.CharField(max_length=255)
     
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
     sender_id = models.IntegerField() 
     receiver_id = models.IntegerField()
+    chat_type = models.CharField(max_length=255) # group or chat.
     
+
     def clean(self):
         if self.sender_id == self.receiver_id:
             raise ValidationError('You Cannot Send Messages To Yourself.')

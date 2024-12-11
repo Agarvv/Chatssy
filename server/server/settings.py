@@ -62,7 +62,8 @@ INSTALLED_APPS = [
     'apps.health',
     'apps.authentication',
     'apps.user',
-    
+    'apps.chat',
+    'apps.groups'
 ]
 
 
