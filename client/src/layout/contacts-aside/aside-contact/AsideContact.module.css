@@ -25,3 +25,7 @@
   object-fit: cover;
   border: 2px solid #ccc;
 }
+
+.aside-chat.group .ac-user img {
+    border-radius: 0;
+}

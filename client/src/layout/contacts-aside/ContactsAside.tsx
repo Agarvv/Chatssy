@@ -1,13 +1,15 @@
 import React from 'react'
 
 import type { UserContact } from "src/types/chat/UserContact"
-import  AsideContact  from './aside-contact/AsideContact'
+import AsideContact from './aside-contact/AsideContact'
 import SearchAsideContacts from './search-aside-contacts/SearchAsideContacts'
+import AsideGroup from './aside-group/AsideGroup'
+import AsideUser from './aside-user/AsideUser'
+
 import styles from './ContactsAside.module.css'
 
-
 interface Props {
-    contacts: UserContact[] | []
+    contacts: UserContact[]
 }
 
 // This aside shows user contacts 
@@ -19,11 +21,26 @@ const ContactsAside: React.FC<Props> = ({ contacts }) => {
                 <SearchAsideContacts />
             </div>
             {/* Contact list */}
-            <div className={styles['aside-chats']}>
-                {contacts.map((contact) => (
-                    <AsideContact key={contact.id} contact={contact} />
-                ))}
-            </div>
+            <div className={styles.asideContent}> 
+                {/* Chat Contacts */}
+                <div className={styles['aside-chats']}>
+                    <span>Your Chats</span>
+                    {contacts.map((contact) => (
+                        <AsideContact key={contact.id} contact={contact} />
+                    ))}
+                </div>
+                {/* Group Contacts */}
+                <div className={styles.asideGroups}>
+                    <span>Groups</span>
+                    <AsideGroup />
+                </div>
+
+                {/* Aside Users May Like */}
+                <div className={styles.asideUsers}>
+                    <span>¡Meet Them!</span>
+                    <AsideUser />
+                </div>
+            </div> 
         </aside>
     )
 }
