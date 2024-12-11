@@ -23,5 +23,6 @@ urlpatterns = [
     path('health/', include('apps.health.urls')),
     path('api/chatssy/', include('apps.authentication.urls')),
     path('api/chatssy/', include('apps.user.urls')),
+    path('api/chatssy/', include('apps.chat.urls'))
     
 ]

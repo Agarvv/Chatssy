@@ -21,8 +21,6 @@ class Message(models.Model):
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
     sender_id = models.IntegerField() 
     receiver_id = models.IntegerField()
-    chat_type = models.CharField(max_length=255) # group or chat.
-    
 
     def clean(self):
         if self.sender_id == self.receiver_id:

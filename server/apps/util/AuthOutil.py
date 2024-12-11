@@ -1,6 +1,6 @@
-from user.models import User 
+from apps.user.models import User 
 
-from outil.JwtOutil import verify_jwt 
+from apps.util.JwtUtil import verify_jwt 
 
 def get_authenticated_user_id(jwt):
     decoded = verify_jwt(jwt)
