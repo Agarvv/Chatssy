@@ -10,6 +10,5 @@ export const createChat = async (userId: number) => {
 
 export const getUserContacts = async () => {
   const response = await axiosInstance.get('/chats/', { withCredentials: true });
-
-  return response
+  return response.data.contacts
 };

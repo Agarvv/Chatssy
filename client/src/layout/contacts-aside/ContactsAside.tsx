@@ -1,4 +1,4 @@
-import { React, useEffect } from 'react'
+import React from 'react'
 
 import type { UserContact } from "src/types/chat/UserContact"
 import AsideContact from './aside-contact/AsideContact'
@@ -11,8 +11,8 @@ import useContacts  from 'src/hooks/useContacts'
 
 // This aside shows user contacts 
 const ContactsAside = () => {
-    const { contacts } = useContacts()
-    console.log('contacts aside', contacts)
+    const { data } = useContacts()
+    console.log('contacts aside', data)
     return (
         <aside className={styles.aside}> 
             <div className={styles['aside-h']}> 
