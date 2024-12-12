@@ -138,9 +138,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': 'server.middleware.custom_exception_handler',
-}
+# REST_FRAMEWORK = {
+#    'EXCEPTION_HANDLER': 'server.middleware.custom_exception_handler',
+#}
+HANDLER500 = 'server.middleware.custom_exception_handler'
+
 
 
 LANGUAGE_CODE = 'en-us'
