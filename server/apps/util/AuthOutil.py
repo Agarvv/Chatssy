@@ -6,7 +6,7 @@ def get_authenticated_user_id(jwt):
     decoded = verify_jwt(jwt)
     if not decoded:
         raise Exception('Something is wrong with the user session...')
-    return decoded.id  # user id 
+    return decoded.get('id') # user id 
 
 def get_authenticated_user(jwt):
     user_id = get_authenticated_user_id(jwt)
