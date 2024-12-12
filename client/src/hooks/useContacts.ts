@@ -6,8 +6,12 @@ import { getUserContacts } from 'src/api/services/chat/ChatService';
 
 const useContacts = () => {
     const dispatch: AppDispatch = useDispatch();
+    
+    return useQuery('contacts', getUserContacts)
 
-    return useQuery(
+
+
+    /* return useQuery(
         ['contacts'] as const, // Asegura que sea un array de tu tipo esperado
         getUserContacts()
         /* {
@@ -19,8 +23,8 @@ const useContacts = () => {
                 console.error('Oops', error);
                 dispatch(setError('Something went wrong while loading your contacts'));
             },
-        } */ 
-    );
+        } 
+    );  */ 
 };
 
 export default useContacts;
