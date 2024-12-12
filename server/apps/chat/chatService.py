@@ -13,7 +13,7 @@ def handle_chat_creation(sender_id, receiver_id, type):
     return chat
 # find user CHATS
 def find_user_chats(user_id):
-    chats = Chat.objects.get(sender_id=user_id)
+    chats = Chat.objects.filter(sender_id=user_id)
     serializer = UserChatSerializer(chats)
     return serializer.data
 
