@@ -1,13 +1,15 @@
-import axiosInstance from 'src/config/axiosConfig'
+import axiosInstance from 'src/config/axiosConfig';
 
 export const createChat = async (userId: number) => {
-    return axiosInstance.post('/chats/create', {
-        userId: userId
-    }, withCredentials: true )
-}
+  const response = await axiosInstance.post('/chats/', {
+    receiver_id: userId
+  }, { withCredentials: true });
+
+  return response
+};
 
 export const getUserContacts = async () => {
-    axiosInstance.get('/chats/', {
-        withCredentials: true 
-    })
-}
+  const response = await axiosInstance.get('/chats/', { withCredentials: true });
+
+  return response
+};
