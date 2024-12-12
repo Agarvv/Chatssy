@@ -26,3 +26,5 @@ const useFetch = ({ endpoint, method }: Options) => {
     },
   });
 }; */
+
+export {} 
