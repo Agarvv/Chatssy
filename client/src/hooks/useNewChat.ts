@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { createChat } from 'src/services/chat/ChatService';
+import { createChat } from 'src/api/services/chat/ChatService';
 
 interface Props {
     userId: number; 

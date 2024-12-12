@@ -5,3 +5,9 @@ export const createChat = async (userId: number) => {
         userId: userId
     }, withCredentials: true )
 }
+
+export const getUserContacts = async () => {
+    axiosInstance.get('/chats/', {
+        withCredentials: true 
+    })
+}

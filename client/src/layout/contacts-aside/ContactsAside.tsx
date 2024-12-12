@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useEffect } from 'react'
 
 import type { UserContact } from "src/types/chat/UserContact"
 import AsideContact from './aside-contact/AsideContact'
@@ -8,12 +8,13 @@ import AsideUser from './aside-user/AsideUser'
 
 import styles from './ContactsAside.module.css'
 
-interface Props {
-    contacts: UserContact[]
-}
-
 // This aside shows user contacts 
-const ContactsAside: React.FC<Props> = ({ contacts }) => {
+const ContactsAside = () => {
+    
+    useEffect(() => {
+        
+    }, [])
+    
     return (
         <aside className={styles.aside}> 
             <div className={styles['aside-h']}> 
@@ -25,9 +26,9 @@ const ContactsAside: React.FC<Props> = ({ contacts }) => {
                 {/* Chat Contacts */}
                 <div className={styles['aside-chats']}>
                     <span>Your Chats</span>
-                    {contacts.map((contact) => (
+                  { /*  {contacts.map((contact) => (
                         <AsideContact key={contact.id} contact={contact} />
-                    ))}
+                    ))}  */ }
                 </div>
                 {/* Group Contacts */}
                 <div className={styles.asideGroups}>
