@@ -138,12 +138,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# REST_FRAMEWORK = {
-#    'EXCEPTION_HANDLER': 'server.middleware.custom_exception_handler',
-#}
-HANDLER500 = 'server.middleware.custom_exception_handler'
-
-
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -166,7 +160,6 @@ CORS_ALLOW_CREDENTIALS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
 DEBUG=True
-DEBUG_PROPAGATE_EXCEPTIONS = True
 ALLOWED_HOSTS = ['*'] 
 CORS_ALLOWED_ORIGINS = [
    'https://chatssy.vercel.app'
