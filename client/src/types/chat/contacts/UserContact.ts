@@ -1,5 +1,5 @@
 
-export type UserContact {
+export type UserContact = {
     username: string,
     profilePicture: string 
 }
