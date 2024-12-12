@@ -7,7 +7,7 @@ interface Props {
 
 const useNewChat = ({ userId }: Props) => {
     return useMutation({
-        mutationFn: () => createChat(userId),
+        mutationFn: ({ userId}: Props) => createChat(userId),
         onSuccess: (data) => {
             console.log('Chat creation success', data);
         },
