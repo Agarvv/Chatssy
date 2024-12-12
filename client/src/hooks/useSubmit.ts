@@ -12,7 +12,7 @@ interface Props {
 }
 
 const useSubmit = ({ url, successMessage, errorMessage }: Props) => {
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch()
 
   return useMutation({
     mutationFn: async (data: any) => {

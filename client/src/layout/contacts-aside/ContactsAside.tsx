@@ -5,15 +5,13 @@ import AsideContact from './aside-contact/AsideContact'
 import SearchAsideContacts from './search-aside-contacts/SearchAsideContacts'
 import AsideGroup from './aside-group/AsideGroup'
 import AsideUser from './aside-user/AsideUser'
-
 import styles from './ContactsAside.module.css'
+import { useContacts } from 'src/hooks/useContacts'
+
 
 // This aside shows user contacts 
 const ContactsAside = () => {
-    
-    useEffect(() => {
-        
-    }, [])
+    const { contacts } = useContacts()
     
     return (
         <aside className={styles.aside}> 

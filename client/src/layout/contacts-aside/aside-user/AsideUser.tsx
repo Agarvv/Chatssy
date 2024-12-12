@@ -8,7 +8,7 @@ const AsideUser: React.FC = () => {
     const { mutate } = useNewChat({ userId: 1 });// dummy data
 
     const handleCreateChat = () => {
-        mutate({ chatId: 1 }); 
+        mutate({ userId: 1 }); 
     };
 
     return (
