@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query';
+/* import { useMutation } from '@tanstack/react-query';
 import axiosInstance from 'src/config/axiosConfig'; 
 
 interface Options {
@@ -25,4 +25,4 @@ const useFetch = ({ endpoint, method }: Options) => {
       dispatch(setError('Something Went Wrong...'));
     },
   });
-};
+}; */
