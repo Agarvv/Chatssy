@@ -6,8 +6,8 @@ class Chat(models.Model):
     sender_id = models.IntegerField()
     receiver_id = models.IntegerField()
     last_message = models.CharField(max_length=255)
-    type = models.CharField(max_length=255) # can be 'group' OR 'chat' meaning groupal chat or private user chat
- 
+    type = models.CharField(max_length=255) # can be 'group' OR 'chat' meaning group chat or private user chat
+    
     def clean(self):
         if self.sender_id == self.receiver_id:
             raise ValidationError("Sender and receiver cannot be the same.")
@@ -18,10 +18,10 @@ class Message(models.Model):
     # Message text, Image URL, video URL, audio URL
     value = models.CharField(max_length=255)
     
-    chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
+    chat = models.ForeignKey(Chat, on_delete=models.CASCADE, related_name='messages')
     sender_id = models.IntegerField() 
     receiver_id = models.IntegerField()
 
     def clean(self):
         if self.sender_id == self.receiver_id:
-            raise ValidationError('You Cannot Send Messages To Yourself.')
+            raise ValidationError('You cannot send messages to yourself.')
