@@ -11,7 +11,7 @@ const HomePage = () => {
           <Header />
           
           <div className={styles.mainContainer}>
-                <ContactsAside contacts={[]}/> 
+                <ContactsAside/> 
 
                  <Chatbox /> 
           </div>
