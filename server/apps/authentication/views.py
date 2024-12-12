@@ -85,9 +85,10 @@ class AuthViewSet(viewsets.ViewSet):
         return Response({
             "errors": serializer.errors
         }, status=status.HTTP_400_BAD_REQUEST)
-
+     
+     # check user auth
     @action(detail=False, methods=['get'])
-    def check_if_authenticated(self, request):
+    def check(self, request):
         jwt_token = request.COOKIES.get('jwt')
         if jwt_token:
             is_valid = check_auth(jwt_token)
