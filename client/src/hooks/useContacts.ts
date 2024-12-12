@@ -11,7 +11,7 @@ const useContacts = () => {
     return useQuery(
         ['contacts'],
         getUserContacts(), 
-        {
+        /*{
             onSuccess: (data) => {
                 console.log('User contacts', data);
                 dispatch(setContacts(data));
@@ -20,7 +20,7 @@ const useContacts = () => {
                 console.error('Oops', error);
                 dispatch(setError('Something went wrong while loading your contacts'));
             },
-        }
+        } */ 
     );
 };
 

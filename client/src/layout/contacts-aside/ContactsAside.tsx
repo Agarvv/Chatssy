@@ -12,7 +12,7 @@ import useContacts  from 'src/hooks/useContacts'
 // This aside shows user contacts 
 const ContactsAside = () => {
     const { contacts } = useContacts()
-    
+    console.log('contacts aside', contacts)
     return (
         <aside className={styles.aside}> 
             <div className={styles['aside-h']}> 
