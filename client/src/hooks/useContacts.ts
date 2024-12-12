@@ -9,7 +9,7 @@ const useContacts = () => {
 
     return useQuery(
         ['contacts'],
-        getUserContacts, 
+        getUserContacts(), 
         {
             onSuccess: (data) => {
                 console.log('User contacts', data);
