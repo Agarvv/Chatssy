@@ -6,7 +6,7 @@ import SearchAsideContacts from './search-aside-contacts/SearchAsideContacts'
 import AsideGroup from './aside-group/AsideGroup'
 import AsideUser from './aside-user/AsideUser'
 import styles from './ContactsAside.module.css'
-import { useContacts } from 'src/hooks/useContacts'
+import useContacts  from 'src/hooks/useContacts'
 
 
 // This aside shows user contacts 

@@ -4,7 +4,7 @@ import { setContacts } from 'src/store/chat/chatSlice';
 import { AppDispatch } from 'src/store/apiStatus/apiStatusStore';
 import { getUserContacts } from 'src/api/services/chat/ChatService';
 
-const useContacts = () => {
+ const useContacts = () => {
     const dispatch: AppDispatch = useDispatch();
     return useQuery({
         queryKey: ['contacts'], 
