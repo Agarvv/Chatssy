@@ -139,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': '.middleware.custom_exception_handler',
+    'EXCEPTION_HANDLER': 'server.middleware.custom_exception_handler',
 }
 
 
