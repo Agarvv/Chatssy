@@ -4,7 +4,10 @@ from rest_framework.decorators import action
 from django.utils import timezone
 from datetime import timedelta
 
-from .serializers import RegisterSerializer, LoginSerializer,SendResetPasswordSerializer,ResetPasswordSerializer
+from .serializers.LoginSerializer import LoginSerializer
+from .serializers.RegisterSerializer import RegisterSerializer 
+from .serializers.ResetPasswordSerializer import ResetPasswordSerializer 
+from .serializers.SendResetPasswordSerializer import SendResetPasswordSerializer
 
 from .authService import (
     register_user,
