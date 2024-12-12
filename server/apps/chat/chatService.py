@@ -14,7 +14,7 @@ def handle_chat_creation(sender_id, receiver_id, type):
 # find user CHATS
 def find_user_chats(user_id):
     chats = Chat.objects.filter(sender_id=user_id)
-    serializer = UserChatSerializer(chats)
+    serializer = UserChatSerializer(chats, many=True)
     return serializer.data
 
 # find user CONTACTS, like groups, chats and people to meet.
