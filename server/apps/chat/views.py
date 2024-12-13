@@ -31,12 +31,14 @@ class ChatViewSet(viewsets.ModelViewSet):
     def get(self, request):
         
         user_id = get_authenticated_user_id(request.COOKIES.get('jwt'))
-        
         contacts = get_user_contacts(user_id)
-        
-        serializer = UserContactsSerializer(contacts)
-        
-        return Response({"contacts": contacts})
+    
+        if contacts:  
+            
+            serializer = UserContactsSerializer(contacts)
+            return Response({"contacts": serializer.data})
+        return Response({"contacts": "error"})
+    
     
     def get_serializer_class(self):
         if self.action == 'create':
