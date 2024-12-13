@@ -1,10 +1,14 @@
+from rest_framework import serializers
+from apps.user.models import User 
+from apps.user.serializers.UserDetailsSerializer import UserDetailsSerializer
+from ..models import Chat
+
 class ChatSerializer(serializers.ModelSerializer):
-    messages = MessageSerializer(many=True)
     user_to_display_info = serializers.SerializerMethodField()
 
     class Meta:
         model = Chat
-        fields = ('id', 'sender_id', 'receiver_id', 'messages', 'user_to_display_info')
+        fields = ('id', 'sender_id', 'receiver_id', 'user_to_display_info', 'messages')
 
     def get_user_to_display_info(self, obj):
         user_id = self.context.get('user_id')
