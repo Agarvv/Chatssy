@@ -3,6 +3,7 @@ from apps.user.userService import find_all_users
 from apps.groups.groupsService import find_all_groups
 from.serializers.UserChatSerializer import UserChatSerializer
 from .serializers.UserContactsSerializer import UserContactsSerializer
+from .serializers.ChatSerializer import ChatSerializer 
 
 def handle_chat_creation(sender_id, receiver_id, type):
     chat = Chat.objects.create(
@@ -14,7 +15,10 @@ def handle_chat_creation(sender_id, receiver_id, type):
 # find user CHATS
 def find_user_chats(user_id):
     chats = Chat.objects.filter(sender_id=user_id)
-    serializer = UserChatSerializer(chats, many=True)
+
+    serializer = ChatSerializer(chats, many=True, context={'user_id': user_id})
+    # need user id for userToDisplayInfo verification
+    
     return serializer.data
 
 # find user CONTACTS, like groups, chats and people to meet.
