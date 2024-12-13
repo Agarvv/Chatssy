@@ -29,14 +29,6 @@ class ChatViewSet(viewsets.ModelViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def get(self, request):
-        
-        user_id = get_authenticated_user_id(request.COOKIES.get('jwt'))
-        contacts = get_user_contacts(user_id)
-    
-        if contacts:  
-            
-            serializer = UserContactsSerializer(contacts)
-            return Response({"contacts": serializer.data})
         return Response({"contacts": "error"})
     
     
