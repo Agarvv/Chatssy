@@ -4,8 +4,11 @@ import logo from 'src/logo.svg';
 import useNewChat from 'src/hooks/useNewChat';
 import { UserContact } from 'src/types/chat/contacts/UserContact'
 
+interface Props {
+    user: UserContact
+}
 
-const AsideUser: React.FC<UserContact> = ({ user }) => {
+const AsideUser: React.FC<Props> = ({ user }) => {
 
     const { mutate } = useNewChat({ userId: user?.id });
 
