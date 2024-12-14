@@ -13,7 +13,7 @@ const ChatboxHeader = () => {
   const cState = useSelector((state: ChatState) => state)
   useEffect(() => { 
     console.log('chat in header', cState)
-  }, [chat]);
+  }, [cState]);
   return (
     <header className={styles.header}>
       <div className={styles.hUser}>
