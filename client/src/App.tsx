@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from './store/apiStatus/apiStatusStore'; 
+import { RootState } from './store/index'; 
 import { AppRoutes } from './routes';
 import  ErrorComponent  from './layout/error-component/ErrorComponent'
 import LoadingComponent  from './layout/loading-component/LoadingComponent'
