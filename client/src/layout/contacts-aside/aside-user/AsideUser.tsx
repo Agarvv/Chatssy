@@ -2,13 +2,18 @@ import React from 'react';
 import sharedContactStyles from '../aside-contact/AsideContact.module.css';
 import logo from 'src/logo.svg';
 import useNewChat from 'src/hooks/useNewChat';
+import { UserContact } from 'src/types/chat/contacts/UserContact'
 
-const AsideUser: React.FC = () => {
+interface Props{
+    user: UserContact
+}
 
-    const { mutate } = useNewChat({ userId: 1 });// dummy data
+const AsideUser: React.FC<UserContact> = ({ user }) => {
+
+    const { mutate } = useNewChat({ userId: user?.id });
 
     const handleCreateChat = () => {
-        mutate({ userId: 1 }); 
+        mutate({ userId: user?.id }); 
     };
 
     return (
@@ -16,7 +21,7 @@ const AsideUser: React.FC = () => {
             <div className={sharedContactStyles['ac-user']}>
                 <img src={logo} alt="ñ" />
                 <div className={sharedContactStyles['ac-content']}>
-                    <h4>Elver Galarga</h4>
+                    <h4>{ user?.username }</h4>
                     <p>Te hecho de m...</p>
                 </div>
             </div>

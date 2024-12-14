@@ -31,13 +31,21 @@ const ContactsAside = () => {
                 {/* Group Contacts */}
                 <div className={styles.asideGroups}>
                     <span>Groups</span>
-                    <AsideGroup />
+                    {
+                        data?.groups?.map((group) => (
+                            <AsideGroup />
+                        ))
+                    }
                 </div>
 
                 {/* Aside Users May Like */}
                 <div className={styles.asideUsers}>
                     <span>¡Meet Them!</span>
-                    <AsideUser />
+                    {
+                      data?.users?.map((user) => (
+                           <AsideUser key={user.id} user={user}/>
+                      ))
+                    }
                 </div>
             </div> 
         </aside>
