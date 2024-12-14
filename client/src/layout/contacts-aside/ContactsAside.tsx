@@ -1,55 +1,55 @@
-import React from 'react'
+import React from 'react';
 
-import type { UserContact } from "src/types/chat/UserContact"
-import AsideContact from './aside-contact/AsideContact'
-import SearchAsideContacts from './search-aside-contacts/SearchAsideContacts'
-import AsideGroup from './aside-group/AsideGroup'
-import AsideUser from './aside-user/AsideUser'
-import styles from './ContactsAside.module.css'
-import useContacts  from 'src/hooks/useContacts'
+import type { UserContact } from "src/types/chat/UserContact";
+import AsideContact from './aside-contact/AsideContact';
+import SearchAsideContacts from './search-aside-contacts/SearchAsideContacts';
+import AsideGroup from './aside-group/AsideGroup';
+import AsideUser from './aside-user/AsideUser';
+import styles from './ContactsAside.module.css';
+import useContacts from 'src/hooks/useContacts';
 
-
-// This aside shows user contacts 
 const ContactsAside = () => {
     const { data } = useContacts();
     console.log('contacts aside', data);
+    
     return (
-        <aside className={styles.aside}> 
-            <div className={styles['aside-h']}> 
-                {/* Search User Contacts */}
+        <aside className={styles.aside}>
+            <div className={styles['aside-h']}>
                 <SearchAsideContacts />
             </div>
-            {/* Contact list */}
-            <div className={styles.asideContent}> 
+            <div className={styles.asideContent}>
                 {/* Chat Contacts */}
-                <div className={styles['aside-chats']}>
-                    <span>Your Chats</span>
-                    {data?.chats?.map((chat) => (
-                        <AsideContact key={chat.id} contact={chat} />
-                    ))}
-                </div>
+                {data?.chats && data.chats.length > 0 && (
+                    <div className={styles['aside-chats']}>
+                        <span>Your Chats</span>
+                        {data.chats.map((chat) => (
+                            <AsideContact key={chat.id} contact={chat} />
+                        ))}
+                    </div>
+                )}
+
                 {/* Group Contacts */}
-                <div className={styles.asideGroups}>
-                    <span>Groups</span>
-                    {
-                        data?.groups?.map((group) => (
-                            <AsideGroup />
-                        ))
-                    }
-                </div>
+                { /* {data?.groups && data.groups.length > 0 && (
+                    <div className={styles.asideGroups}>
+                        <span>Groups</span>
+                        {data.groups.map((group) => (
+                            <AsideGroup key={group.id} />
+                        ))}
+                    </div>
+                )} */ }
 
                 {/* Aside Users May Like */}
-                <div className={styles.asideUsers}>
-                    <span>¡Meet Them!</span>
-                    {
-                      data?.users?.map((user) => (
-                           <AsideUser key={user.id} user={user}/>
-                      ))
-                    }
-                </div>
-            </div> 
+                {data?.users && data.users.length > 0 && (
+                    <div className={styles.asideUsers}>
+                        <span>¡Meet Them!</span>
+                        {data.users.map((user) => (
+                            <AsideUser key={user.id} user={user} />
+                        ))}
+                    </div>
+                )}
+            </div>
         </aside>
     );
 }
 
-export default ContactsAside
+export default ContactsAside;
