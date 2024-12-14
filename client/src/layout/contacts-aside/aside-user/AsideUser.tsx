@@ -4,9 +4,6 @@ import logo from 'src/logo.svg';
 import useNewChat from 'src/hooks/useNewChat';
 import { UserContact } from 'src/types/chat/contacts/UserContact'
 
-interface Props{
-    user: UserContact
-}
 
 const AsideUser: React.FC<UserContact> = ({ user }) => {
 
@@ -21,8 +18,8 @@ const AsideUser: React.FC<UserContact> = ({ user }) => {
             <div className={sharedContactStyles['ac-user']}>
                 <img src={logo} alt="ñ" />
                 <div className={sharedContactStyles['ac-content']}>
-                    <h4>{ user?.username }</h4>
-                    <p>Te hecho de m...</p>
+                    <h4>Elver Galarga</h4>
+                    <p>{ user?.username }</p>  
                 </div>
             </div>
         </div>
