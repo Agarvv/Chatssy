@@ -9,6 +9,7 @@ import { ChatState } from 'src/store/chat/chatSlice';
 
 const Chatbox = () => {
    const chat = useSelector((state: ChatState) => state.chat)
+   console.log('chat from store', chat)
 
   return (
     <main className={styles.chatbox}>
