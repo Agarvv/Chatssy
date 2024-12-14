@@ -8,24 +8,23 @@ import { ChatState } from 'src/store/chat/chatSlice';
 
 const ChatboxHeader = () => {
   const chat = useSelector((state: ChatState) => state.chat);
-  const userInfo = useMemo(() => chat?.user_to_display_info, [chat]);
   useEffect(() => { 
-    console.log('chat in header', chat);
-    console.log('userinfo', userInfo)
-  }, [chat, userInfo]);
+    console.log('chat in header', chat?.user_to_display_info)
+  }, [chat]);
 
 
 
   return (
     <header className={styles.header}>
+          <p>{  }</p>
       <div className={styles.hUser}>
         <div className={styles.hUserImg}>
           <img src={logo} alt="Profile" />
           <div className={styles.hUserStatus}></div>
         </div>
         <div className={styles.hUserData}>
-          <p className={styles.hUsername}>{userInfo?.username}</p>
-          <p className={styles.hBio}>{userInfo?.bio}</p>
+          <p className={styles.hUsername}>{chat?.receiver_id}</p>
+          <p className={styles.hBio}>{chat?.sender_id}</p>
         </div>
       </div>
       <div className={styles.hActions}>
