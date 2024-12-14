@@ -8,12 +8,13 @@ import { ChatState } from 'src/store/chat/chatSlice';
 
 const ChatboxHeader = () => {
   const chat = useSelector((state: ChatState) => state.chat);
-
+  const userInfo = useMemo(() => chat?.user_to_display_info, [chat]);
   useEffect(() => { 
     console.log('chat in header', chat);
-  }, [chat]);
+    console.log('userinfo', userInfo)
+  }, [chat, userInfo]);
 
-  const userInfo = useMemo(() => chat?.user_to_display_info, [chat]);
+
 
   return (
     <header className={styles.header}>
