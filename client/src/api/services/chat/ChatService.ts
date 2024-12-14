@@ -5,7 +5,7 @@ export const createChat = async (userId: number) => {
     receiver_id: userId
   }, { withCredentials: true });
 
-  return response
+  return response.data.chat
 };
 
 export const getUserContacts = async () => {
