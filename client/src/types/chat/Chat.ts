@@ -1,10 +1,10 @@
 import { ChatUser } from './ChatUser';
 import  { Message } from './Message'
 
-
 export type Chat = {
     id: number,
-    type: string, // 'chat' or 'group'
-    user: ChatUser,
+    sender_id: number,
+    receiver_id: number,
+    user_to_display_info: ChatUser,
     messages: Message[] 
 } 

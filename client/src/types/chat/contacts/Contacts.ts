@@ -1,9 +1,10 @@
-import { ChatContact } from './ChatContact'
+import { Chat } from '../Chat'
 import { Group } from './Group'
 import { UserContact } from './UserContact'
 
+
 export type Contacts = {
-    chats: ChatContact[]
+    chats: Chat[]
     groups: Group[]
     users: UserContact[]
 }

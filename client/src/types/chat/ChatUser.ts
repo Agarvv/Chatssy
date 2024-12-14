@@ -4,5 +4,4 @@ export type ChatUser = {
     username: string,
     profilePicture: number,
     bio: string,
-
 }
