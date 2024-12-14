@@ -22,8 +22,8 @@ const ChatboxHeader = () => {
           <div className={styles.hUserStatus}></div>
         </div>
         <div className={styles.hUserData}>
-          <p className={styles.hUsername}>{chat?.user_to_display_info.username} ?? 'Not Provided'</p>
-          <p className={styles.hBio}>{chat?.user_to_display_info.bio}</p>
+          <p className={styles.hUsername}>{chat?.user_to_display_info?.username}</p>
+          <p className={styles.hBio}>{chat?.user_to_display_info?.bio}</p>
         </div>
       </div>
       <div className={styles.hActions}>
