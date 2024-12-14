@@ -10,8 +10,9 @@ import { ChatState } from 'src/store/chat/chatSlice';
 
 const ChatboxHeader = () => {
   const chat = useSelector((state: ChatState) => state.chat)
+  const cState = useSelector((state: ChatState) => state)
   useEffect(() => { 
-    console.log('chat in header', chat)
+    console.log('chat in header', cState)
   }, [chat]);
   return (
     <header className={styles.header}>
