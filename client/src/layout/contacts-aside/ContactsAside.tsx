@@ -24,7 +24,7 @@ const ContactsAside = () => {
                 {/* Chat Contacts */}
                 <div className={styles['aside-chats']}>
                     <span>Your Chats</span>
-                    {data.chats.map((chat) => (
+                    {data?.chats?.map((chat) => (
                         <AsideContact key={chat.id} contact={chat} />
                     ))}
                 </div>
