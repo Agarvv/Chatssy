@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import CallButton from './CallButton/CallButton';
 import VideoCallButton from './VideoCallButton/VideoCallButton';
 import styles from './ChatboxHeader.module.css';
@@ -7,13 +6,15 @@ import logo from 'src/logo.svg';
 import { useSelector } from 'react-redux';
 import { ChatState } from 'src/store/chat/chatSlice'; 
 
-
 const ChatboxHeader = () => {
-  const chat = useSelector((state: ChatState) => state.chat)
-  const cState = useSelector((state: ChatState) => state)
+  const chat = useSelector((state: ChatState) => state.chat);
+
   useEffect(() => { 
-    console.log('chat in header', chat)
+    console.log('chat in header', chat);
   }, [chat]);
+
+  const userInfo = useMemo(() => chat?.user_to_display_info, [chat]);
+
   return (
     <header className={styles.header}>
       <div className={styles.hUser}>
@@ -22,8 +23,8 @@ const ChatboxHeader = () => {
           <div className={styles.hUserStatus}></div>
         </div>
         <div className={styles.hUserData}>
-          <p className={styles.hUsername}>{chat?.user_to_display_info?.username ?? 'not provided'}</p>
-          <p className={styles.hBio}>{chat?.user_to_display_info?.bio}</p>
+          <p className={styles.hUsername}>{userInfo?.username}</p>
+          <p className={styles.hBio}>{userInfo?.bio}</p>
         </div>
       </div>
       <div className={styles.hActions}>
