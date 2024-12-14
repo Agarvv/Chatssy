@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './AsideContact.module.css'
-import { UserContact } from 'src/types/chat/UserContact'
+import { ChatUser } from 'src/types/chat/ChatUser';
 import logo from 'src/logo.svg';
 
 
 interface Props {
-    contact: UserContact
+    contact: ChatUser
 }
 
 const AsideContact: React.FC<Props> = ({ contact }) => {
