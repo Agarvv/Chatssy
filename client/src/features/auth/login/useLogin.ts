@@ -3,7 +3,7 @@ import axiosInstance from 'src/config/axiosConfig';
 import { FormValues } from './types';
 import { useDispatch } from 'react-redux';
 import { setLoading, setSuccess, setError, clearMessages } from 'src/store/apiStatus/apiStatusSlice';
-import { AppDispatch } from 'src/store/apiStatus/apiStatusStore';
+import { AppDispatch } from 'src/store/index';
 import { useNavigate  } from 'react-router-dom';
 
 const loginUser = async (data: FormValues): Promise<any> => {

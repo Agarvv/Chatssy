@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 import { createChat } from 'src/api/services/chat/ChatService';
 import { setChat } from 'src/store/chat/chatSlice';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from 'src/store/apiStatus/apiStatusStore';
+import { AppDispatch } from 'src/store/index';
 
 
 interface Props {

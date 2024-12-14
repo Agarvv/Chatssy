@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import axiosInstance from 'src/config/axiosConfig'; 
 import { useDispatch } from 'react-redux';
 import { setLoading, setSuccess, setError } from 'src/store/apiStatus/apiStatusSlice';
-import { AppDispatch } from 'src/store/apiStatus/apiStatusStore';
+import { AppDispatch } from 'src/store/index';
 
 interface Props {
   url: string; // URL for the API request

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 import { setContacts } from 'src/store/chat/chatSlice';
-import { AppDispatch } from 'src/store/apiStatus/apiStatusStore';
+import { AppDispatch } from 'src/store/index';
 import { getUserContacts } from 'src/api/services/chat/ChatService';
 import { setError } from 'src/store/apiStatus/apiStatusSlice';
 import { Contacts } from 'src/types/chat/contacts/Contacts';

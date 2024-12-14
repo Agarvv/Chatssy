@@ -1,6 +1,6 @@
 import { setChat } from 'src/store/chat/chatSlice';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from 'src/store/apiStatus/apiStatusStore';
+import { AppDispatch } from 'src/store/index';
 import { Chat } from 'src/types/chat/Chat';
 
 export const useChat = () => {
