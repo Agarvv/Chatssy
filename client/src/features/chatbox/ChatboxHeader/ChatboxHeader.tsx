@@ -12,8 +12,8 @@ const ChatboxHeader = () => {
   const chat = useSelector((state: ChatState) => state.chat)
   const cState = useSelector((state: ChatState) => state)
   useEffect(() => { 
-    console.log('chat in header', cState)
-  }, [cState]);
+    console.log('chat in header', chat)
+  }, [chat]);
   return (
     <header className={styles.header}>
       <div className={styles.hUser}>
@@ -22,7 +22,7 @@ const ChatboxHeader = () => {
           <div className={styles.hUserStatus}></div>
         </div>
         <div className={styles.hUserData}>
-          <p className={styles.hUsername}>{chat?.user_to_display_info?.username}</p>
+          <p className={styles.hUsername}>{chat?.user_to_display_info?.username ?? 'not provided'}</p>
           <p className={styles.hBio}>{chat?.user_to_display_info?.bio}</p>
         </div>
       </div>
