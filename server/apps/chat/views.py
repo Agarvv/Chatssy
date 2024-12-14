@@ -4,7 +4,7 @@ from rest_framework import status
 from .models import Chat
 from .serializers.StartChatSerializer import StartChatSerializer
 from .serializers.UserContactsSerializer import UserContactsSerializer
-from serializers.ChatSerializer import ChatSerializer 
+from .serializers.ChatSerializer import ChatSerializer 
 from apps.util.AuthOutil import get_authenticated_user_id
 from .chatService import handle_chat_creation, get_user_contacts
 
