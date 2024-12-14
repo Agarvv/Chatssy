@@ -3,13 +3,13 @@ import { Chat } from 'src/types/chat/Chat';
 import { Contacts } from 'src/types/chat/contacts/Contacts'
 
 export interface ChatState {
-    chat: Chat;
-    contacts: Contacts 
+    chat: Chat | null;
+    contacts: Contacts | null; 
 }
 
 const initialState: ChatState = {
-    chat: {} as Chat, 
-    contacts: {} as Contacts 
+    chat: null, 
+    contacts: null 
 };
 
 const chatSlice = createSlice({

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import CallButton from './CallButton/CallButton';
 import VideoCallButton from './VideoCallButton/VideoCallButton';
 import styles from './ChatboxHeader.module.css';
@@ -9,7 +10,9 @@ import { ChatState } from 'src/store/chat/chatSlice';
 
 const ChatboxHeader = () => {
   const chat = useSelector((state: ChatState) => state.chat)
-
+  useEffect(() => { 
+    console.log('chat in header', chat)
+  }, [chat]);
   return (
     <header className={styles.header}>
       <div className={styles.hUser}>
@@ -18,7 +21,7 @@ const ChatboxHeader = () => {
           <div className={styles.hUserStatus}></div>
         </div>
         <div className={styles.hUserData}>
-          <p className={styles.hUsername}>{chat?.user_to_display_info.username}</p>
+          <p className={styles.hUsername}>{chat?.user_to_display_info.username} ?? 'Not Provided'</p>
           <p className={styles.hBio}>{chat?.user_to_display_info.bio}</p>
         </div>
       </div>
