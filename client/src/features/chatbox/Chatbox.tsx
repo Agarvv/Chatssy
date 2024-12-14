@@ -4,17 +4,22 @@ import ChatboxHeader from './ChatboxHeader/ChatboxHeader';
 import Message from './Message/Message';
 import ChatboxFooter from './ChatboxFooter/ChatboxFooter';
 import styles from './Chatbox.module.css'
+import { useSelector } from 'react-redux';
+import { ChatState } from 'src/store/chat/chatSlice'; 
 
 const Chatbox = () => {
+   const chat = useSelector((state: ChatState) => state.chat)
+
   return (
     <main className={styles.chatbox}>
      <ChatboxHeader />
       
       <div className={styles.messageList}>
-        <Message />
+        {chat?.messages?.map((message) => (
+           <Message />
+        ))}
       </div>
       
-
       <ChatboxFooter />
     </main>
   );

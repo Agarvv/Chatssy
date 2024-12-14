@@ -1,9 +1,15 @@
 import React from 'react';
+import CallButton from './CallButton/CallButton';
+import VideoCallButton from './VideoCallButton/VideoCallButton';
 import styles from './ChatboxHeader.module.css';
 import logo from 'src/logo.svg';
+import { useSelector } from 'react-redux';
+import { ChatState } from 'src/store/chat/chatSlice'; 
 
 
 const ChatboxHeader = () => {
+  const chat = useSelector((state: ChatState) => state.chat)
+
   return (
     <header className={styles.header}>
       <div className={styles.hUser}>
@@ -12,17 +18,13 @@ const ChatboxHeader = () => {
           <div className={styles.hUserStatus}></div>
         </div>
         <div className={styles.hUserData}>
-          <p className={styles.hUsername}>Elver Galarga</p>
-          <p className={styles.hBio}>Me gusta el helado de fresa</p>
+          <p className={styles.hUsername}>{chat?.user_to_display_info.username}</p>
+          <p className={styles.hBio}>{chat?.user_to_display_info.bio}</p>
         </div>
       </div>
       <div className={styles.hActions}>
-        <div>
-          <i className="fa fa-phone"></i>
-        </div>
-        <div>
-          <i className="fa fa-video-camera"></i>
-        </div>
+        <CallButton />
+        <VideoCallButton />
       </div>
     </header>
   );
