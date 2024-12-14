@@ -26,6 +26,6 @@ class ChatApiView(APIView):
         
         contacts = get_user_contacts(user_id)
         
-        serializer = UserContactsSerializer(data=contacts)
+        serializer = UserContactsSerializer(contacts)
         
         return Response({"contacts": serializer.data}, status=status.HTTP_200_OK)
