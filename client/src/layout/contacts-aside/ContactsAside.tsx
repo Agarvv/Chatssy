@@ -11,8 +11,8 @@ import useContacts  from 'src/hooks/useContacts'
 
 // This aside shows user contacts 
 const ContactsAside = () => {
-    const { data } = useContacts()
-    console.log('contacts aside', data)
+    const { data } = useContacts();
+    console.log('contacts aside', data);
     return (
         <aside className={styles.aside}> 
             <div className={styles['aside-h']}> 
@@ -24,9 +24,9 @@ const ContactsAside = () => {
                 {/* Chat Contacts */}
                 <div className={styles['aside-chats']}>
                     <span>Your Chats</span>
-                  { {data.chats.map((chat) => (
+                    {data.chats.map((chat) => (
                         <AsideContact key={chat.id} contact={chat} />
-                    ))} }
+                    ))}
                 </div>
                 {/* Group Contacts */}
                 <div className={styles.asideGroups}>
@@ -41,7 +41,7 @@ const ContactsAside = () => {
                 </div>
             </div> 
         </aside>
-    )
+    );
 }
 
 export default ContactsAside
