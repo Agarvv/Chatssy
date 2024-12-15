@@ -1,25 +1,17 @@
-import React, { useEffect, useMemo } from 'react';
+
 import CallButton from './CallButton/CallButton';
 import VideoCallButton from './VideoCallButton/VideoCallButton';
 import styles from './ChatboxHeader.module.css';
 import logo from 'src/logo.svg';
 import { useSelector } from 'react-redux';
-import { ChatState } from 'src/store/chat/chatSlice'; 
 import { RootState } from 'src/store';
 
 const ChatboxHeader = () => {
   const chat = useSelector((state: RootState) => state.chat.activeChat);
-  useEffect(() => { 
-    console.log('chat in header', chat)
-  }, [chat]);
 
   return (
     
     <header className={styles.header}>
-       <p>Chat Object Debug:</p>
-        <pre style={{ background: '#f4f4f4', color: 'black', padding: '10px' }}>
-          {JSON.stringify(chat, null, 2) || 'Chat is null'}
-        </pre>
       <div className={styles.hUser}>
         <div className={styles.hUserImg}>
           <img src={logo} alt="Profile" />
@@ -27,7 +19,6 @@ const ChatboxHeader = () => {
         </div>
         <div className={styles.hUserData}>
           <p>{ chat?.user_to_display_info.username }</p>
-          <p>{ chat?.user_to_display_info.id }</p>
         </div>
       </div>
       <div className={styles.hActions}>
