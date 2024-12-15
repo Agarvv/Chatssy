@@ -15,8 +15,10 @@ footer {
   }
   
   .fMediaButtons div {
-    padding: 2px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    object-fit: cover;
     display: flex;
     align-items: center;
     justify-content: center;
