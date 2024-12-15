@@ -7,7 +7,7 @@ import ResetPasswordForm from './features/auth/reset-password/ResetPasswordForm'
 import HomePage from "./pages/home/HomePage";
 import ProtectedRoute from 'src/outils/ProtectedRoute';
 import AppLayout from 'src/layout/AppLayout/AppLayout';
-import ProfilePage from 'src/pages/ProfilePage/ProfilePage';
+import ProfilePage from 'src/pages/profile/ProfilePage';
 
 export const AppRoutes = () => (
   <Router>
