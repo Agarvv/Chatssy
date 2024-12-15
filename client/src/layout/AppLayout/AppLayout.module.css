@@ -1,0 +1,14 @@
+.layoutContainer {
+    display: flex;
+}
+
+@media(max-width: 600px) {
+    .layoutMain {
+        display: none;
+    }
+    
+    .layoutAside {
+        flex: 1;
+    }
+}
+

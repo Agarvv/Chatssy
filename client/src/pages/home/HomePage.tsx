@@ -8,13 +8,7 @@ import styles from './HomePage.module.css'
 const HomePage = () => {
     return(
         <>
-          <Header />
-          
-          <div className={styles.mainContainer}>
-                <ContactsAside/> 
-
-                 <Chatbox /> 
-          </div>
+            <Chatbox /> 
         </>
     )
 }
