@@ -9,10 +9,8 @@ import { ChatState } from 'src/store/chat/chatSlice';
 const ChatboxHeader = () => {
   const chat = useSelector((state: ChatState) => state.chat);
   useEffect(() => { 
-    console.log('chat in header', chat?.user_to_display_info)
+    console.log('chat in header', chat)
   }, [chat]);
-
-
 
   return (
     <header className={styles.header}>
@@ -23,8 +21,7 @@ const ChatboxHeader = () => {
           <div className={styles.hUserStatus}></div>
         </div>
         <div className={styles.hUserData}>
-          <p className={styles.hUsername}>{chat?.receiver_id}</p>
-          <p className={styles.hBio}>{chat?.sender_id}</p>
+          <p> {chat?.user_to_display_info?.username || 'Please select a chat!'} </p>
         </div>
       </div>
       <div className={styles.hActions}>
