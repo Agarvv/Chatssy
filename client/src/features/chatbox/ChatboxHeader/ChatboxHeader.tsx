@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { ChatState } from 'src/store/chat/chatSlice'; 
 
 const ChatboxHeader = () => {
-  const chat = useSelector((state: ChatState) => state.chat);
+  const chat = useSelector((state: ChatState) => state.chat?.chat);
   useEffect(() => { 
     console.log('chat in header', chat)
   }, [chat]);
