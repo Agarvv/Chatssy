@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { ChatState } from 'src/store/chat/chatSlice'; 
 
 const ChatboxHeader = () => {
-  const chat = useSelector((state: ChatState) => state.chat?.chat);
+  const chat = useSelector((state: ChatState) => state.chat);
   useEffect(() => { 
     console.log('chat in header', chat)
   }, [chat]);
@@ -17,7 +17,7 @@ const ChatboxHeader = () => {
     <header className={styles.header} key={chat?.id || 'default'}>
        <p>Chat Object Debug:</p>
         <pre style={{ background: '#f4f4f4', color: 'black', padding: '10px' }}>
-          {JSON.stringify(chat.chat, null, 2) || 'Chat is null'}
+          {JSON.stringify(chat, null, 2) || 'Chat is null'}
         </pre>
       <div className={styles.hUser}>
         <div className={styles.hUserImg}>
