@@ -16,6 +16,8 @@ footer {
   
   .fMediaButtons div {
     padding: 8px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: #444;
     transition: all 0.3s ease;
@@ -41,11 +43,6 @@ footer {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-size: 16px;
     color: var(--app_theme_font);
-  }
-  
-  .fInp input:focus {
-    border-color: #6e7a96;
-    background-color: #fff;
   }
   
   .fSubmit {
