@@ -13,15 +13,14 @@ const ChatboxHeader = () => {
   }, [chat]);
 
   return (
-    <header className={styles.header}>
-          <p>{  }</p>
+    <header className={styles.header} key={chat?.id || 'default'}>
       <div className={styles.hUser}>
         <div className={styles.hUserImg}>
           <img src={logo} alt="Profile" />
           <div className={styles.hUserStatus}></div>
         </div>
         <div className={styles.hUserData}>
-          <p> {chat?.user_to_display_info?.username || 'Please select a chat!'} </p>
+          <p> {chat?.user_to_display_info?.username || 'Please select a chat'} </p>
         </div>
       </div>
       <div className={styles.hActions}>
