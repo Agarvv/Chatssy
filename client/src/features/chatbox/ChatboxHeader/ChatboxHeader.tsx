@@ -16,7 +16,7 @@ const ChatboxHeader = () => {
     
     <header className={styles.header} key={chat?.id || 'default'}>
        <p>Chat Object Debug:</p>
-        <pre style={{ background: '#f4f4f4', padding: '10px' }}>
+        <pre style={{ background: '#f4f4f4', color: 'black', padding: '10px' }}>
           {JSON.stringify(chat, null, 2) || 'Chat is null'}
         </pre>
       <div className={styles.hUser}>
