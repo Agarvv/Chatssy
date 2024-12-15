@@ -30,7 +30,7 @@ const ContactsAside = () => {
 
                 {/* Group Contacts */}
                 { /* {data?.groups && data.groups.length > 0 && (
-                    <div className={styles.asideGroups}>
+                    <div className={styles['aside-chats']}>
                         <span>Groups</span>
                         {data.groups.map((group) => (
                             <AsideGroup key={group.id} />
@@ -40,7 +40,7 @@ const ContactsAside = () => {
 
                 {/* Aside Users May Like */}
                 {data?.users && data.users.length > 0 && (
-                    <div className={styles.asideUsers}>
+                    <div className={styles['aside-chats']}>
                         <span>¡Meet Them!</span>
                         {data.users.map((user) => (
                             <AsideUser key={user.id} user={user} />
