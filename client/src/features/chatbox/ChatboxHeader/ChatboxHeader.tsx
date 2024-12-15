@@ -13,7 +13,12 @@ const ChatboxHeader = () => {
   }, [chat]);
 
   return (
+    
     <header className={styles.header} key={chat?.id || 'default'}>
+       <p>Chat Object Debug:</p>
+        <pre style={{ background: '#f4f4f4', padding: '10px' }}>
+          {JSON.stringify(chat, null, 2) || 'Chat is null'}
+        </pre>
       <div className={styles.hUser}>
         <div className={styles.hUserImg}>
           <img src={logo} alt="Profile" />
