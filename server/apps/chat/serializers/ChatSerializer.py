@@ -22,7 +22,7 @@ class ChatSerializer(serializers.ModelSerializer):
 
         other_user_id = sender_id if receiver_id == user_id else receiver_id 
             # i have to debug this and i dont know how, i dont have the server console.
-        raise Exception("sender_id: ", sender_id, "receiver_id", receiver_id, "user id", user_id, "oher_user_id", other_user_id)
+       #  raise Exception("sender_id: ", sender_id, "receiver_id", receiver_id, "user id", user_id, "oher_user_id", other_user_id)
 
 
         other_user = User.objects.get(id=other_user_id)
