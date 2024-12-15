@@ -6,7 +6,6 @@ import SendResetPasswordUrlForm from './features/auth/send-reset-password-url/Se
 import ResetPasswordForm from './features/auth/reset-password/ResetPasswordForm';
 import HomePage from "./pages/home/HomePage";
 import ProtectedRoute from 'src/outils/ProtectedRoute';
-import AppLayout from 'src/layout/AppLayout/AppLayout';
 import ProfilePage from 'src/pages/profile/ProfilePage';
 
 export const AppRoutes = () => (
@@ -19,30 +18,21 @@ export const AppRoutes = () => (
       <Route path="/reset-password/:token/:email" element={<ResetPasswordForm />} />
       {/* END OF AUTH */}
 
-      {/* APP LAYOUT */}
+      {/* APP ROUTES */}
       <Route 
         path='/' 
         element={ 
           <ProtectedRoute> 
-            <AppLayout /> 
+            <HomePage /> 
           </ProtectedRoute> 
         }
-      > 
-        {/* HOMEPAGE */}
-        <Route
-          path='/'
-          element={<HomePage />} 
-        />
-        {/* END OF HOMEPAGE */}
-        
-        {/* PROFILE PAGE */}
-        <Route
-          path='/profile/:id' // meaning user id
-          element={<ProfilePage />} 
-        />
-        {/* END OF PROFILE PAGE */}
-      </Route>
-      {/* END OF APP LAYOUT */}
+      /> 
+      
+      <Route 
+        path='/profile/:id' 
+        element={<ProtectedRoute> <ProfilePage /> </ProtectedRoute>} 
+      />
+      {/* END OF APP ROUTES */}
     </Routes>
   </Router> 
 )
