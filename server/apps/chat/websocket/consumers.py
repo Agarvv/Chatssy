@@ -4,3 +4,4 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         await self.accept()
         print('WS working fine')
+
