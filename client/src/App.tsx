@@ -20,12 +20,8 @@ function App() {
        
        {errorMessage && <ErrorComponent errorMessage={errorMessage} />}
        
-       <Header /> 
-       
-       <div className="app-container">
-        <ContactsAside /> 
+
         <AppRoutes /> 
-       </div>
      
     </div>
   );
