@@ -16,7 +16,7 @@ const Chatbox = () => {
      <ChatboxHeader />
       
       <div className={styles.messageList}>
-        {chat?.messages?.map((message) => (
+        {chat?.messages?.map((message: any) => (
            <Message />
         ))}
       </div>
