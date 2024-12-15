@@ -3,12 +3,12 @@ import { Chat } from 'src/types/chat/Chat';
 import { Contacts } from 'src/types/chat/contacts/Contacts'
 
 export interface ChatState {
-    chat: Chat | null;
+    activeChat: Chat | null;
     contacts: Contacts | null; 
 }
 
 const initialState: ChatState = {
-    chat: null, 
+    activeChat: null, 
     contacts: null 
 };
 
@@ -17,7 +17,7 @@ const chatSlice = createSlice({
     initialState,
     reducers: {
         setChat: (state, action: PayloadAction<Chat>) => {
-            return { ...state, chat: action.payload }; 
+            return { ...state, activeChat: action.payload }; 
         },
         setContacts: (state, action: PayloadAction<Contacts>) => {
             return { ...state, contacts: action.payload }; 
