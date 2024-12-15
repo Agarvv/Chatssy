@@ -5,9 +5,10 @@ import styles from './ChatboxHeader.module.css';
 import logo from 'src/logo.svg';
 import { useSelector } from 'react-redux';
 import { ChatState } from 'src/store/chat/chatSlice'; 
+import { RootState } from 'src/store';
 
 const ChatboxHeader = () => {
-  const state = useSelector((state: ChatState) => state.activeChat);
+  const state = useSelector((state: RootState) => state.chat.activeChat);
   useEffect(() => { 
     console.log('chat in header', state)
   }, [state]);
