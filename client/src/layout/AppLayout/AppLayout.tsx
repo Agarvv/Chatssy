@@ -1,10 +1,9 @@
 import React from 'react';
 import Header from 'src/layout/header/Header';
 import ContactsAside from 'src/layout/contacts-aside/ContactsAside';
-import { AppRoutes } from 'src/routes';
 import styles from './AppLayout.module.css';
 
-const AppLayout = () => {
+const AppLayout = ({ children }) => {
   return (
     <>
       <Header /> 
@@ -13,7 +12,7 @@ const AppLayout = () => {
           <ContactsAside /> 
         </div> 
         <div className={styles.layoutMain}>
-          <AppRoutes /> 
+          <main>{ children }</main>
         </div> 
       </div>
     </>
