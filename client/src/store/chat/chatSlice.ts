@@ -17,13 +17,14 @@ const chatSlice = createSlice({
     initialState,
     reducers: {
         setChat: (state, action: PayloadAction<Chat>) => {
-            state.chat = action.payload; 
+            return { ...state, chat: action.payload }; 
         },
         setContacts: (state, action: PayloadAction<Contacts>) => {
-            state.contacts = action.payload; 
+            return { ...state, contacts: action.payload }; 
         }
     },
 });
+
 
 export const { setChat, setContacts } = chatSlice.actions;
 export default chatSlice.reducer;
