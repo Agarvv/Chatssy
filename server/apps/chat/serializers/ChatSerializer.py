@@ -19,8 +19,9 @@ class ChatSerializer(serializers.ModelSerializer):
         elif isinstance(obj, Chat):
             sender_id = obj.sender_id
             receiver_id = obj.receiver_id
-
-        print("sender_id: ", sender_id, "receiver_id", receiver_id)
+        
+        # i have to debug this and i dont know how, i dont have the server console.
+        raise Exception("sender_id: ", sender_id, "receiver_id", receiver_id)
 
         other_user_id = receiver_id if sender_id == user_id else sender_id
 
