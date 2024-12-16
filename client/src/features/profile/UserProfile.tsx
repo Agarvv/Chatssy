@@ -18,12 +18,9 @@ const UserProfile = () => {
     const { id } = useParams();
     const { profile } = useProfile({ id: Number(id) });
     
-    setIsSelf(id == localStorage.getItem('userId') ? true : false)
-    
-    useEffect(() => {
-        console.log('is self', isSelf)
-    }, []) // debug 
-    
+    // setIsSelf(id == localStorage.getItem('userId') ? true : false)
+
+     
 
     return (
         <div className={styles.user}>
