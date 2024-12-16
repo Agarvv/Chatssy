@@ -22,7 +22,7 @@ const UserProfile = () => {
     
     useEffect(() => {
         console.log('is self', isSelf)
-    }, [isSelf]) // debug 
+    }, []) // debug 
     
 
     return (
