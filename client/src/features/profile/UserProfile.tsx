@@ -1,8 +1,14 @@
 import React from 'react';
 import styles from './Profile.module.css';
 import logo from 'src/logo.svg'
+import Profile from 'src/features/profile/UserProfile'
+import { useParams } from 'react-router-dom'
+import useProfile from 'src/hooks/useProfile'
 
-const Profile = () => {
+const UserProfile = () => {
+    const { id } = useParams()
+    const { profile } = useProfile({ id: Number(id) })
+
     return (
         <div className={styles.user}>
             <div className={styles.userBanner}>
@@ -41,4 +47,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default UserProfile;
