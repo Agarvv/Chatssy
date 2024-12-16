@@ -1,5 +1,5 @@
 import React from 'react'
-import isSelfProps from '../types'
+import { isSelfProps } from '../types'
 import styles from './ProfilePicture.module.css'
 
 const ProfilePicture: React.FC<isSelfProps> = ({ isSelf }) => {

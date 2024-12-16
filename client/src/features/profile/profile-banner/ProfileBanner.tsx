@@ -1,5 +1,5 @@
 import React from 'react'
-import isSelfProps from '../types'
+import { isSelfProps } from '../types'
 import styles from './ProfileBanner.module.css'
 
 const ProfileBanner: React.FC<isSelfProps> = ({ isSelf }) => {
