@@ -30,7 +30,7 @@ const useImageUpload = () => {
         }
     };
 
-    return { imageUrl };
+    return { imageUrl, uploadImage };
 };
 
 export default useImageUpload;
