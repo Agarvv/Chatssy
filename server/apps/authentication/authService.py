@@ -31,7 +31,10 @@ def login_user(serializer, request):
     login(request, user)
     jwt = generate_jwt(user)
         
-    return jwt
+    return {
+        'user_id': user.id,
+        'jwt': jwt
+    }
     
     
 

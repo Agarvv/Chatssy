@@ -40,15 +40,16 @@ class AuthViewSet(viewsets.ViewSet):
     def login(self, request):
         serializer = LoginSerializer(data=request.data)
         if serializer.is_valid():
-            jwt_token = login_user(serializer, request)
+            data = login_user(serializer, request)
             response = Response({
-                "access_token": jwt_token
+                "access_token": data['jwt'],
+                "user_id": data['user_id']
             })
 
             expiration_time = timezone.now() + timedelta(days=1)
             response.set_cookie(
                 'jwt',
-                jwt_token,
+                data['jwt'],
                 httponly=True,
                 secure=True,
                 expires=expiration_time,
