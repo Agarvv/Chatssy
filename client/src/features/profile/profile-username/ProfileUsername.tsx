@@ -1,6 +1,6 @@
 import React from 'react'
 import isSelfProps from '../types'
-import styles from '.ProfileUsername.module.css'
+import styles from './ProfileUsername.module.css'
 
 const ProfileUsername: React.FC<isSelfProps> = ({ isSelf }) => {
   return (
