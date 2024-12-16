@@ -1,8 +1,14 @@
 import React from 'react'
+import isSelfProps from '../types'
+import styles from '.ProfileUsername.module.css'
 
-const ProfileUsername = () => {
+const ProfileUsername: React.FC<isSelfProps> = ({ isSelf }) => {
   return (
-    <div>ProfileUsername</div>
+     <>
+      <div className={styles['ud-username']}>
+          <h4>Juan Pancracio</h4>
+      </div>
+     </>
   )
 }
 

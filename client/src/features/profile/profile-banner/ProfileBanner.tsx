@@ -1,8 +1,12 @@
 import React from 'react'
+import isSelfProps from '../types'
+import styles from './ProfileBanner.module.css'
 
-const ProfileBanner = () => {
+const ProfileBanner: React.FC<isSelfProps> = ({ isSelf }) => {
   return (
-    <div>ProfileBanner</div>
+    <>
+    <img className={styles.banner} src={logo} alt="banner" />
+    </> 
   )
 }
 

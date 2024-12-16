@@ -1,8 +1,12 @@
 import React from 'react'
+import isSelfProps from '../types'
+import styles from './ProfilePicture.module.css'
 
-const ProfilePicture = () => {
+const ProfilePicture: React.FC<isSelfProps> = ({ isSelf }) => {
   return (
-    <div>ProfilePicture</div>
+      <>
+        <img src={logo} alt="user image" />
+      </>
   )
 }
 
