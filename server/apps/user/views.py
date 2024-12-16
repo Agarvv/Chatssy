@@ -33,7 +33,7 @@ class UserViewSet(viewsets.ModelViewSet):
        serializer = UserSerializer(self.queryset, many=True)  
        return Response({"users": serializer.data})
 
-    @action(detail=True, methods=['POST'])
+    @action(detail=True, methods=['PUT'])
     def update_profile_picture(self, request):
         serializer = UpdatePictureSerializer(data=request.data)
         if serializer.is_valid():
