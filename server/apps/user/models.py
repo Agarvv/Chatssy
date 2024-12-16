@@ -21,6 +21,7 @@ class User(AbstractBaseUser):
     password = models.CharField(max_length=255) 
     profilePicture = models.URLField()
     bio = models.CharField(max_length=255)
+    banner = models.URLField() 
 
 
     objects = UserManager()
