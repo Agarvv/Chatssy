@@ -12,7 +12,7 @@ interface Props {
 const useProfile = ({ id}: Props) => {
    const dispatch: AppDispatch = useDispatch();
    const { data, error } = useQuery<Profile>({
-          queryKey: ['contacts'],
+          queryKey: ['profile'],
           queryFn: () => {
              return getUserProfile(id);
           }

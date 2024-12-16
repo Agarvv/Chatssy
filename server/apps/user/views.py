@@ -21,7 +21,7 @@ class UserViewSet(viewsets.ModelViewSet):
     def retrieve(self, request, pk=None):
         user = self.get_object() 
         serializer = UserSerializer(user)  
-        return Response({"user": serializer.data})
+        return Response({"profile": serializer.data})
         
     # find all users 
     def list(self, request):
