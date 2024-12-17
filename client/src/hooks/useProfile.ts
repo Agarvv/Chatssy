@@ -26,24 +26,38 @@ const useProfile = ({ id }: Props) => {
       dispatch(setError("Something went wrong while fetching user profile..."));
    }
 
-   const mutationConfig = (mutationFn: Function, successMessage: string, errorMessage: string) => ({
-      mutationFn,
-      onSuccess: () => dispatch(setSuccess(successMessage)),
-      onError: (error: any) => {
-         console.error('failed:', error);
-         dispatch(setError(errorMessage));
-      },
-      onSettled: () => dispatch(setLoading())
-   });
-
    const setUserPicture = (url: string) => 
-      useMutation(mutationConfig(() => setUserProfilePicture(url), 'Your Profile Picture Has Been Updated !', 'Your Profile picture could not be updated...'));
+      useMutation({
+         mutationFn: () => setUserProfilePicture(url),
+         onSuccess: () => dispatch(setSuccess('Your Profile Picture Has Been Updated !')),
+         onError: (error: any) => {
+            console.error('failed:', error);
+            dispatch(setError('Your Profile picture could not be updated...'));
+         },
+         onSettled: () => dispatch(setLoading())
+      });
 
    const setUserBio = (bio: string) => 
-      useMutation(mutationConfig(() => setUserProfileBio(bio), 'Your Profile BIO Has Been Updated !', 'Your Profile BIO could not be updated...'));
+      useMutation({
+         mutationFn: () => setUserProfileBio(bio),
+         onSuccess: () => dispatch(setSuccess('Your Profile BIO Has Been Updated !')),
+         onError: (error: any) => {
+            console.error('failed:', error);
+            dispatch(setError('Your Profile BIO could not be updated...'));
+         },
+         onSettled: () => dispatch(setLoading())
+      });
 
    const setUserBanner = (url: string) => 
-      useMutation(mutationConfig(() => setUserProfileBanner(url), 'Your Profile Banner Has Been Updated !', 'Your Profile Banner could not be updated...'));
+      useMutation({
+         mutationFn: () => setUserProfileBanner(url),
+         onSuccess: () => dispatch(setSuccess('Your Profile Banner Has Been Updated !')),
+         onError: (error: any) => {
+            console.error('failed:', error);
+            dispatch(setError('Your Profile Banner could not be updated...'));
+         },
+         onSettled: () => dispatch(setLoading())
+      });
 
    return { profile: data, setUserPicture, setUserBio, setUserBanner };
 }
