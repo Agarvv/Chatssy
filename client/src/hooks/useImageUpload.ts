@@ -10,6 +10,7 @@ const useImageUpload = () => {
     const [imageUrl, setImageUrl] = useState(null);
 
     const uploadImage = async (file: File) => {
+        console.log(`cld credentials, ${process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET} and :${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME} `)
         if (!file) {
             dispatch(setError('No image provided.'))
             return;
@@ -18,6 +19,7 @@ const useImageUpload = () => {
         const formData = new FormData();
         formData.append('file', file);
         formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET || '');
+        formData.append('cloud_name', process.env.REACT_APP_CLOUDINARY_CLOUD_NAME || '');
 
         try {
             const response = await axios.post(
