@@ -20,7 +20,7 @@ const ChatboxFooterVideoButton = () => {
         if (file) {
             try {
                 const url = await uploadImage(file, 'video');
-                console.log('video uploaded successfully!', url);
+                console.log('viiiiddeo uploaded successfully!', url);
                 const message = {
                   'type': 'video',
                   'value': url,
