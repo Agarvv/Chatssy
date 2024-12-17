@@ -33,7 +33,7 @@ const UserProfile = () => {
 
             <div className={styles['user-details']}>
                 <div className={styles['user-data']}>
-                  <ProfileUsername valueToDisplay={profile?.username} />  
+                  <ProfileUsername isSelf={isSelf} valueToDisplay={profile?.username} />  
                   <ProfileBio isSelf={isSelf} valueToDisplay={profile?.bio}/> 
                     <div className={styles['ud-status']}>
                         <p>Online</p>
