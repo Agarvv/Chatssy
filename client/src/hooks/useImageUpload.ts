@@ -9,7 +9,7 @@ const useImageUpload = () => {
     const dispatch: AppDispatch = useDispatch() 
     const [imageUrl, setImageUrl] = useState(null);
 
-    const uploadImage = async (file: File, type) => {
+    const uploadImage = async (file: File, type: string) => {
         console.log(`cld credentials, ${process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET} and :${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME} `)
         if (!file) {
             dispatch(setError('No image provided.'))
