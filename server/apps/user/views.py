@@ -33,7 +33,7 @@ class UserViewSet(viewsets.ModelViewSet):
        serializer = UserSerializer(self.queryset, many=True)  
        return Response({"users": serializer.data})
 
-    @action(detail=True, methods=['PUT'])
+    @action(detail=False, methods=['POST'])
     def update_profile_picture(self, request):
         serializer = UpdatePictureSerializer(data=request.data)
         if serializer.is_valid():
@@ -51,7 +51,7 @@ class UserViewSet(viewsets.ModelViewSet):
         
         
 
-    @action(detail=True, methods=['POST'])
+    @action(detail=False, methods=['POST'])
     def update_bio(self, request):
         serializer = UpdateBioSerializer(data=request.data)
         if serializer.is_valid():
@@ -66,7 +66,7 @@ class UserViewSet(viewsets.ModelViewSet):
         })
         
 
-    @action(detail=True, methods=['POST'])
+    @action(detail=False, methods=['POST'])
     def update_banner(self, request):
         serializer = UpdateBannerSerializer(data=request.data)
         if serializer.is_valid():

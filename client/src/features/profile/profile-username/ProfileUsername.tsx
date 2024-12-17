@@ -7,26 +7,6 @@ const ProfileUsername: React.FC<isSelfProps> = ({ isSelf }) => {
 
   const [username, setUsername] = useState('Juan Pancracio');
 
-  const handleUsernameClick = () => {
-    if (isSelf) {
-      setIsEditing(true);
-    }
-  };
-
-  const handleBlur = () => {
-    setTempUsername(username);
-    setIsEditing(false);
-  };
-
-  const handleSaveClick = () => {
-    setUsername(tempUsername);
-    setIsEditing(false);
-  };
-
-  const handleInputChange = (e: React.FormEvent<HTMLDivElement>) => {
-    setTempUsername(e.currentTarget.textContent || username);
-  };
-
   return (
     <>
       <div className={styles['ud-username']}>
