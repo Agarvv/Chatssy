@@ -5,4 +5,19 @@ export const getUserProfile = async (userId: number) => {
   return response.data.profile;
 }
 
-  
+export const setUserProfilePicture = async (url: string) => {
+    const response = await axiosInstance.post('/users/update_profile_picture/', { picture: url })
+    return response
+}
+
+export const setUserProfileBio = async (bio: string) => {
+    const response = await axiosInstance.post('/users/update_bio/', { bio: bio })
+    return response
+}
+
+
+export const setUserProfileBanner = async (url: string) => {
+    const response = await axiosInstance.post('/users/update_banner/', { banner: url })
+    return response
+}
+
