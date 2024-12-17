@@ -11,5 +11,5 @@ export const useMessage = () => {
     }
   };
 
-  return { sendMessage };
+  return { emitMessage };
 };
