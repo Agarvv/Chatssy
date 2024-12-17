@@ -8,6 +8,7 @@ interface Props {
 
 const MediaUpload: React.FC<Props> = ({ change, children }) => {
     const triggerInput = () => {
+        console.log('on change prop', change)
         const inputElement = document.querySelector('input[type="file"]');
         if (inputElement instanceof HTMLInputElement) {
             inputElement.click();
