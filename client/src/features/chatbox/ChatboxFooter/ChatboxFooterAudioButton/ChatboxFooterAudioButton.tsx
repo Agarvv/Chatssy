@@ -12,6 +12,7 @@ const ChatboxFooterAudioButton: React.FC = () => {
   const chat = useSelector((state: RootState) => state.chat.activeChat);
   const [isRecording, setIsRecording] = useState(false);
   const [audioFile, setAudioFile] = useState<File | null>(null);
+  const { imageUrl, uploadImage } = useImageUpload();
 
   let mediaRecorder: MediaRecorder | null = null;
   let audioChunks: Blob[] = [];
