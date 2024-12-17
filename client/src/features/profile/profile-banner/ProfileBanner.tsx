@@ -12,7 +12,7 @@ const ProfileBanner: React.FC<isSelfProps> = ({ isSelf }) => {
         const file = e.target.files?.[0];
         if (file) {
             try {
-                await uploadImage(file);
+                await uploadImage(file, 'image');
                 console.log('Banner uploaded successfully!', imageUrl);
             } catch (error) {
                 console.error('Error uploading banner:', error);
