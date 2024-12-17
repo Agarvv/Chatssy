@@ -7,20 +7,26 @@ import useImageUpload from 'src/hooks/useImageUpload';
 const ProfilePicture: React.FC<isSelfProps> = ({ isSelf }) => {
     const { imageUrl, uploadImage } = useImageUpload();
 
-    const handleImageChange = (e) => {
+    const handleImageChange = (e: any) => {
         const file = e.target.files[0];
         if (file) {
+           try {
             uploadImage(file);
+            console.log('uploaded image sucesfully!', imageUrl)
+           } catch(e: any) {
+             console.error('Error uploading image:', e);
+             return;
+           }
         }
     };
 
     const triggerInput = () => {
         const inputElement = document.querySelector('input[type="file"]');
-        if (inputElement) {
+        if (inputElement instanceof HTMLInputElement) { 
             inputElement.click();
         }
     };
-
+    
     return (
         <>
             <img 
@@ -32,7 +38,6 @@ const ProfilePicture: React.FC<isSelfProps> = ({ isSelf }) => {
             <input 
                 type="file" 
                 onChange={handleImageChange} 
-                style={{ display: 'none' }} 
             />
         </>
     );
