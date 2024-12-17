@@ -25,16 +25,16 @@ const UserProfile = () => {
     return (
         <div className={styles.user}>
             <div className={styles['user-banner']}>
-                <ProfileBanner isSelf={isSelf}/> 
+                <ProfileBanner isSelf={isSelf} valueToDisplay={profile?.banner}/> 
                 <div className={styles['user-img']}>
-                    <ProfilePicture isSelf={isSelf}/>
+                    <ProfilePicture isSelf={isSelf} valueToDisplay={profile?.profilePicture}/>
                 </div>
             </div>
 
             <div className={styles['user-details']}>
                 <div className={styles['user-data']}>
-                  <ProfileUsername isSelf={isSelf} />  
-                  <ProfileBio isSelf={isSelf}/> 
+                  <ProfileUsername valueToDisplay={profile?.username} />  
+                  <ProfileBio isSelf={isSelf} valueToDisplay={profile?.bio}/> 
                     <div className={styles['ud-status']}>
                         <p>Online</p>
                     </div>

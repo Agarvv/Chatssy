@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import { isSelfProps } from '../types';
 import styles from './ProfileUsername.module.css';
 
-const ProfileUsername: React.FC<isSelfProps> = ({ isSelf }) => {
-  const [isEditing, setIsEditing] = useState(false);
-
-  const [username, setUsername] = useState('Juan Pancracio');
+const ProfileUsername: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
 
   return (
     <>
       <div className={styles['ud-username']}>
-       <p>Userame</p>
+       <p>{ valueToDisplay }</p>
       </div>
     </>
   );
