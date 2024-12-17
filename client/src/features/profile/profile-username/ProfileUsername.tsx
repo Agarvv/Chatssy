@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { isSelfProps } from '../types';
 import styles from './ProfileUsername.module.css';
 
-const ProfileUsername: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
+const ProfileUsername: React.FC<isSelfProps> = ({ valueToDisplay }) => {
 
   return (
     <>
