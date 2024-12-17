@@ -1,11 +1,29 @@
-import { useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 export const useMessage = () => {
-  const socket = useRef(null);
+  const [socket, setSocket] = useState(null);
 
-  const emitMessage = (message: any) => {
-    if (socket.current && socket.current.readyState === WebSocket.OPEN) {
-      socket.current.send(message);
+  useEffect(() => {
+    const ws = new WebSocket('url');
+
+    ws.onopen = () => {
+      console.log('WebSocket is open now.');
+    };
+
+    ws.onclose = () => {
+      console.log('WebSocket is closed now.');
+    };
+
+    setSocket(ws);
+
+    return () => {
+      ws.close();
+    };
+  }, []);
+ 
+  const emitMessage = (message) => {
+    if (socket && socket.readyState === WebSocket.OPEN) {
+      socket.send(message);
     } else {
       console.warn('WebSocket not ready.');
     }
