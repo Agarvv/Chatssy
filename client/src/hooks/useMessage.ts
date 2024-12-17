@@ -4,7 +4,7 @@ export const useMessage = () => {
   const [socket, setSocket] = useState<null | WebSocket>(null);
 
   useEffect(() => {
-    const ws = new WebSocket('your-websocket-url');
+    const ws = new WebSocket('wss://chatssy.onrender.com/');
 
     ws.onopen = () => {
       console.log('WebSocket is open now.');
