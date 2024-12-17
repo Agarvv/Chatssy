@@ -33,6 +33,22 @@ const ChatboxFooterAudioButton: React.FC = () => {
           const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
           const file = new File([audioBlob], 'audio_recording.wav', { type: 'audio/wav' });
           setAudioFile(file);
+          try { 
+                await uploadImage(audioFile, 'audio');
+                console.log('audio uploaded successfully!', imageUrl);
+                const message = {
+                  'type': 'audio',
+                  'value': imageUrl,
+                  'identifier': chat?.id,
+                  'receiver_id': chat?.user_to_display_info.id 
+                }
+                console.log('Final message object', message)
+                emitMessage(message)
+            } catch (error) {
+                console.error('Error uploading video:', error);
+            }
+          
+          
           audioChunks = [];
         };
 

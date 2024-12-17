@@ -24,8 +24,8 @@ const ChatboxFooterVideoButton = () => {
                 const message = {
                   'type': 'video',
                   'value': imageUrl,
-                  'identifier': chat.id,
-                  'receiver_id': chat.user_to_display_info.id 
+                  'identifier': chat?.id,
+                  'receiver_id': chat?.user_to_display_info.id 
                 }
                 console.log('Final message object', message)
                 emitMessage(message)
