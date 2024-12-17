@@ -27,8 +27,7 @@ const useProfile = ({ id }: Props) => {
    }
 
    const handleMutation = (mutationFn: Function, successMessage: string, errorMessage: string) => {
-      const mutation = useMutation({
-         mutationFn,
+      return useMutation(mutationFn, {
          onSuccess: () => dispatch(setSuccess(successMessage)),
          onError: (error: any) => {
             console.error('failed:', error);
@@ -36,8 +35,6 @@ const useProfile = ({ id }: Props) => {
          },
          onSettled: () => dispatch(setLoading())
       });
-
-      return mutation;
    };
 
    const setUserPicture = (url: string) => handleMutation(() => setUserProfilePicture(url), 'Your Profile Picture Has Been Updated !', 'Your Profile picture could not be updated...');
