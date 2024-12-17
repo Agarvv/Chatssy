@@ -5,6 +5,7 @@ import { useMessage } from 'src/hooks/useMessage';
 
 import styles from './ChatboxFooterAudioButton.module.css';
 import sharedMediaButtonStyles from '../ChatboxFooter.module.css';
+import useImageUpload from 'src/hooks/useImageUpload';
 
 const ChatboxFooterAudioButton: React.FC = () => {
   const { emitMessage } = useMessage();

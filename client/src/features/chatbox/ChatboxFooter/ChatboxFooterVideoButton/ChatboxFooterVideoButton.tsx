@@ -7,7 +7,7 @@ import MediaUpload from 'src/layout/media-upload/MediaUpload';
 import { useSelector } from 'react-redux';
 import { RootState } from 'src/store';
 import { useMessage } from 'src/hooks/useMessage'
-
+import useImageUpload from 'src/hooks/useImageUpload';
 
 const ChatboxFooterVideoButton = () => {
     const { emitMessage } = useMessage() 
