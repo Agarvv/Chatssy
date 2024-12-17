@@ -27,6 +27,7 @@ const useImageUpload = () => {
                 formData
             );
             setImageUrl(response.data.secure_url);
+            console.log('cloudinary response data', response)
         } catch (err) {
             console.log(err)
         }

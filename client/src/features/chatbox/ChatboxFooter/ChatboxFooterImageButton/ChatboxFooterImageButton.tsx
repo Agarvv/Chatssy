@@ -13,6 +13,7 @@ const ChatboxFooterImageButton = () => {
     const { imageUrl, uploadImage } = useImageUpload();
     
     const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log('HANDLING IMAGE')
         const file = e.target.files?.[0];
         if (file) {
             try {
