@@ -1,7 +1,7 @@
 import React from 'react';
 import { isSelfProps } from '../types';
 import styles from './ProfileBio.module.css';
-import { useProfile } from 'src/hooks/useProfile'
+import useProfile from 'src/hooks/useProfile'
 
 
 const ProfileBio: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {

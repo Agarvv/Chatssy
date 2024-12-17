@@ -4,7 +4,7 @@ import styles from './ProfilePicture.module.css';
 import logo from 'src/logo.svg';
 import useImageUpload from 'src/hooks/useImageUpload';
 import MediaUpload from 'src/layout/media-upload/MediaUpload';
-import { useProfile } from 'src/hooks/useProfile'
+import useProfile from 'src/hooks/useProfile'
 
 
 const ProfilePicture: React.FC<isSelfProps> = ({ isSelf }) => {

@@ -4,7 +4,7 @@ import styles from './ProfileBanner.module.css';
 import logo from 'src/logo.svg';
 import MediaUpload from 'src/layout/media-upload/MediaUpload';
 import useImageUpload from 'src/hooks/useImageUpload';
-import { useProfile } from 'src/hooks/useProfile'
+import useProfile from 'src/hooks/useProfile'
 
 
 const ProfileBanner: React.FC<isSelfProps> = ({ isSelf }) => {
