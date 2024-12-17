@@ -1,4 +1,4 @@
 export interface isSelfProps {
-    isSelf: boolean,
+    isSelf?: boolean,
     valueToDisplay?: string
 }
