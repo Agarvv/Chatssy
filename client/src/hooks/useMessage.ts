@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
 export const useMessage = () => {
-  const [socket, setSocket] = useState(null);
+  const [socket, setSocket] = useState<null | WebSocket>(null);
 
   useEffect(() => {
-    const ws = new WebSocket('url');
+    const ws = new WebSocket('your-websocket-url');
 
     ws.onopen = () => {
       console.log('WebSocket is open now.');
@@ -14,14 +14,14 @@ export const useMessage = () => {
       console.log('WebSocket is closed now.');
     };
 
-    setSocket(ws);
+    setSocket((prev) => ws);
 
     return () => {
       ws.close();
     };
   }, []);
- 
-  const emitMessage = (message) => {
+
+  const emitMessage = (message: any) => {
     if (socket && socket.readyState === WebSocket.OPEN) {
       socket.send(message);
     } else {
