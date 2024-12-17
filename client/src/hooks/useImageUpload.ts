@@ -2,14 +2,14 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from 'src/store/index';
-
+import { setError } from 'src/store/apiStatus/apiStatusSlice';
 
 
 const useImageUpload = () => {
     const dispatch: AppDispatch = useDispatch() 
     const [imageUrl, setImageUrl] = useState(null);
 
-    const uploadImage = async (file) => {
+    const uploadImage = async (file: File) => {
         if (!file) {
             dispatch(setError('No image provided.'))
             return;
@@ -17,7 +17,7 @@ const useImageUpload = () => {
         
         const formData = new FormData();
         formData.append('file', file);
-        formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET);
+        formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET || '');
 
         try {
             const response = await axios.post(
