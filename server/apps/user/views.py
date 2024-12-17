@@ -37,7 +37,7 @@ class UserViewSet(viewsets.ModelViewSet):
     def update_profile_picture(self, request):
         serializer = UpdatePictureSerializer(data=request.data)
         if serializer.is_valid():
-            user = get_authenticated_user()
+            user = get_authenticated_user(request.COOKIES.get('jwt'))
             update_user_field('profilePicture', serializer.validated_data['picture'], user)
             return Response({
                 "message": "profile pic update success"
@@ -55,7 +55,7 @@ class UserViewSet(viewsets.ModelViewSet):
     def update_bio(self, request):
         serializer = UpdateBioSerializer(data=request.data)
         if serializer.is_valid():
-            user = get_authenticated_user()
+            user = get_authenticated_user(request.COOKIES.get('jwt'))
             update_user_field('profilePicture', serializer.validated_data['picture'], user)
             return Response({
                 "message": "BIO update success"
@@ -70,7 +70,7 @@ class UserViewSet(viewsets.ModelViewSet):
     def update_banner(self, request):
         serializer = UpdateBannerSerializer(data=request.data)
         if serializer.is_valid():
-            user = get_authenticated_user()
+            user = get_authenticated_user(request.COOKIES.get('jwt'))
             update_user_field('profilePicture', serializer.validated_data['picture'], user)
             return Response({
                 "message": "Profile Banner update success"
