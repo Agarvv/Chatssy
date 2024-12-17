@@ -9,7 +9,7 @@ const useImageUpload = () => {
     const dispatch: AppDispatch = useDispatch() 
     const [imageUrl, setImageUrl] = useState(null);
 
-    const uploadImage = async (file: File) => {
+    const uploadImage = async (file: File, type) => {
         console.log(`cld credentials, ${process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET} and :${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME} `)
         if (!file) {
             dispatch(setError('No image provided.'))
@@ -23,7 +23,7 @@ const useImageUpload = () => {
 
         try {
             const response = await axios.post(
-                `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`,
+                `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/${type}/upload`,
                 formData
             );
             setImageUrl(response.data.secure_url);
