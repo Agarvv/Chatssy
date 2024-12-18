@@ -5,11 +5,11 @@ import { useMutation } from '@tanstack/react-query';
 import { setError, setSuccess, setLoading } from 'src/store/apiStatus/apiStatusSlice';
 import { setUserProfilePicture } from 'src/api/services/profile/ProfileService';
 
-const useSetProfilePicture = (url: string) => {
+const useSetProfilePicture = () => {
   const dispatch: AppDispatch = useDispatch();  
 
   return useMutation({
-    mutationFn: () => setUserProfilePicture(url),
+    mutationFn: (url: string) => setUserProfilePicture(url),
     onSuccess: () => dispatch(setSuccess('Your Profile Picture Has Been Updated!')),
     onError: (error: any) => {
       console.error('failed:', error);

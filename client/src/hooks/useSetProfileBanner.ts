@@ -4,11 +4,11 @@ import { setError, setSuccess, setLoading } from 'src/store/apiStatus/apiStatusS
 import { setUserProfileBanner } from 'src/api/services/profile/ProfileService';
 import { useDispatch } from 'react-redux';  
 
-const useSetProfileBanner = (url: string) => {
+const useSetProfileBanner = () => {
   const dispatch: AppDispatch = useDispatch();
 
   return useMutation({
-    mutationFn: () => setUserProfileBanner(url),
+    mutationFn: (url: string) => setUserProfileBanner(url),
     onSuccess: () => dispatch(setSuccess('Your Profile Banner Has Been Updated!')),
     onError: (error: any) => {
       console.error('failed:', error);
