@@ -9,9 +9,9 @@ const ProfilePage = () => {
     
     return(
       <>
-      <AppLayout> 
+      { /* <AppLayout> */ }
           <UserProfile/>
-       </AppLayout> 
+      { /* </AppLayout> */ }
       </>
     )
 }
