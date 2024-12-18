@@ -30,8 +30,6 @@ const UserProfile = () => {
                     <ProfilePicture isSelf={isSelf} valueToDisplay={profile?.profilePicture}/>
                 </div>
             </div>
-            
-                                <ProfilePicture isSelf={isSelf} valueToDisplay={profile?.profilePicture}/>
 
             <div className={styles['user-details']}>
                 <div className={styles['user-data']}>

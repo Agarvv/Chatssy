@@ -23,18 +23,30 @@ const ProfilePicture: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
             }
         }
     };
+    
+    const triggerInput = () => {
+        const inputElement = document.querySelector('input[type="file"]');
+        if (inputElement instanceof HTMLInputElement) {
+            inputElement.click();
+        }
+    };
 
     return (
-        <MediaUpload change={handleImageChange}>
-            {({ triggerInput }) => (
+        { /* <MediaUpload change={handleImageChange}>
+            {({ triggerInput }) => ( */}
+            <input
+                type="file"
+                onChange={handleImageChange}
+                style={{ display: 'none' }}
+            />
                 <img
                     src={valueToDisplay || logo}
                     alt="Profile"
                     className={styles.profilePicture}
                     onClick={triggerInput}
                 />
-            )}
-        </MediaUpload>
+           { /* )}
+        </MediaUpload> */ }
     );
 };
 
