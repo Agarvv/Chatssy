@@ -25,7 +25,7 @@ const UserProfile = () => {
     return (
         <div className={styles.user}>
             <div className={styles['user-banner']}>
-                <ProfileBanner isSelf={isSelf} valueToDisplay={profile?.banner}/> 
+                <ProfileBanner isSelf={isSelf} valuepToDisplay={profile?.banner}/> 
                 <div className={styles['user-img']}>
                     <ProfilePicture isSelf={isSelf} valueToDisplay={profile?.profilePicture}/>
                 </div>
