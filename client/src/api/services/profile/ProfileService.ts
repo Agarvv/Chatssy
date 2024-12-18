@@ -6,6 +6,7 @@ export const getUserProfile = async (userId: number) => {
 };
 
 export const setUserProfilePicture = async (url: string) => {
+    console.log('SETTING PROFILE PIC', url)
     const response = await axiosInstance.post(
       '/users/update_profile_picture/', 
       { picture: url }, 
@@ -15,6 +16,7 @@ export const setUserProfilePicture = async (url: string) => {
 };
 
 export const setUserProfileBio = async (bio: string) => {
+    console.log('SETTING PROFILE Bio', bio)
     const response = await axiosInstance.post(
       '/users/update_bio/', 
       { bio }, 
@@ -24,6 +26,7 @@ export const setUserProfileBio = async (bio: string) => {
 };
 
 export const setUserProfileBanner = async (url: string) => {
+    console.log('SETTING PROFILE banner', url)
     const response = await axiosInstance.post(
       '/users/update_banner/', 
       { banner: url }, 
