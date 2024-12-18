@@ -16,12 +16,14 @@ const ChatboxFooterAudioButton: React.FC = () => {
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
+  const streamRef = useRef<MediaStream | null>(null); 
 
   const startRecording = async () => {
     setIsRecording(true);
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      streamRef.current = stream; // Guardamos el stream
       const mediaRecorder = new MediaRecorder(stream);
 
       mediaRecorder.ondataavailable = (e) => {
@@ -64,6 +66,7 @@ const ChatboxFooterAudioButton: React.FC = () => {
 
   const stopRecording = () => {
     const mediaRecorder = mediaRecorderRef.current;
+    const stream = streamRef.current;
 
     if (mediaRecorder) {
       console.log(`MediaRecorder state: ${mediaRecorder.state}`);
@@ -75,6 +78,12 @@ const ChatboxFooterAudioButton: React.FC = () => {
       }
     } else {
       alert('no audio recorder.');
+    }
+
+    // Detener el stream de audio
+    if (stream) {
+      stream.getTracks().forEach((track) => track.stop());
+      streamRef.current = null;
     }
   };
 
