@@ -39,7 +39,7 @@ const ProfilePicture: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
                 style={{ display: 'none' }}
             />
             <img
-                src={valueToDisplay || logo}
+                src={logo}
                 alt="Profile"
                 className={styles.rofilePicture}
                 onClick={triggerInput}
