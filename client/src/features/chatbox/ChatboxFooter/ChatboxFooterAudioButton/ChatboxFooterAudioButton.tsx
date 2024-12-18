@@ -62,15 +62,19 @@ const ChatboxFooterAudioButton: React.FC = () => {
   };
 
   const stopRecording = () => {
-      alert('stop recording')
-    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+  if (mediaRecorder) {
+    console.log(`MediaRecorder state: ${mediaRecorder.state}`);
+    if (mediaRecorder.state !== 'inactive') {
       mediaRecorder.stop();
       setIsRecording(false);
     } else {
-        alert('mvk')
+      alert('could not stop audio');
     }
-  };
-
+  } else {
+    alert('no audio recorder.');
+  }
+};
+  
   return (
     <>
       <div className={`${sharedMediaButtonStyles.fMediaButton} ${styles.fmbAudio}`}>
