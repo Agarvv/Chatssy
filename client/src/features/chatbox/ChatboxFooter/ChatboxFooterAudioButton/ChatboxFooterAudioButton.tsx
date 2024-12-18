@@ -18,48 +18,48 @@ const ChatboxFooterAudioButton: React.FC = () => {
   let audioChunks: Blob[] = [];
 
   const startRecording = async () => {
-    setIsRecording(true);
+  setIsRecording(true);
 
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      mediaRecorder = new MediaRecorder(stream);
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    mediaRecorder = new MediaRecorder(stream);
 
-      mediaRecorder.ondataavailable = (e) => {
-        if (e.data.size > 0) {
-          audioChunks.push(e.data);
+    mediaRecorder.ondataavailable = (e) => {
+      if (e.data.size > 0) {
+        audioChunks.push(e.data);
+      }
+    };
+
+    mediaRecorder.onstop = async () => {
+      const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+      const file = new File([audioBlob], 'audio_recording.wav', { type: 'audio/wav' });
+      setAudioFile(file);
+
+      if (file) {
+        try {
+          await uploadImage(file, 'audio');
+          console.log('audio uploaded successfully!', imageUrl);
+          const message = {
+            type: 'audio',
+            value: imageUrl,
+            identifier: chat?.id,
+            receiver_id: chat?.user_to_display_info.id 
+          };
+          console.log('Final message object', message);
+          emitMessage(message);
+        } catch (error) {
+          console.error('Error uploading Aud:', error);
         }
-      };
+      }
 
-      mediaRecorder.onstop = async () => {
-        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-        const file = new File([audioBlob], 'audio_recording.wav', { type: 'audio/wav' });
-        setAudioFile(file);
+      audioChunks = [];
+    };
 
-        if (file) {  
-          try {
-            await uploadImage(file, 'audio'); 
-            console.log('audio uploaded successfully!', imageUrl);
-            const message = {
-              type: 'audio',
-              value: imageUrl,
-              identifier: chat?.id,
-              receiver_id: chat?.user_to_display_info.id 
-            };
-            console.log('Final message object', message);
-            emitMessage(message);
-          } catch (error) {
-            console.error('Error uploading video:', error);
-          }
-        }
-
-        audioChunks = [];
-      };
-
-      mediaRecorder.start();
-    } catch (err) {
-      console.error(err);
-    }
-  };
+    mediaRecorder.start();
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   const stopRecording = () => {
   if (mediaRecorder) {
