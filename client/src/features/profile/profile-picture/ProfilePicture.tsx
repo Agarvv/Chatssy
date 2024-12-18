@@ -35,7 +35,6 @@ const ProfilePicture: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
                 {({ triggerInput }) => ( */}
             <input
                 type="file"
-                onChange={handleImageChange}
                 style={{ display: 'none' }}
             />
             <img
