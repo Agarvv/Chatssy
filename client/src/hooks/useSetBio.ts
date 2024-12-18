@@ -8,11 +8,11 @@ const useSetBio = () => {
   const dispatch: AppDispatch = useDispatch();
 
   return useMutation({
-    mutationFn: (bio: string) => setUserProfileBio(url),
-    onSuccess: () => dispatch(setSuccess('Your Profile bio Has Been Updated!')),
+    mutationFn: (bio: string) => setUserProfileBio(bio),
+    onSuccess: () => dispatch(setSuccess('Your Profile Bio Has Been Updated!')),
     onError: (error: any) => {
       console.error('failed:', error);
-      dispatch(setError('Your Profile bio could not be updated...'));
+      dispatch(setError('Your Profile Boo could not be updated...'));
     },
     onSettled: () => dispatch(setLoading())
   });
