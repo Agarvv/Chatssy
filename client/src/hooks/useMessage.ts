@@ -22,6 +22,7 @@ export const useMessage = () => {
   }, []);
 
   const emitMessage = (message: any) => {
+      console.log('Sending message', message)
     if (socket && socket.readyState === WebSocket.OPEN) {
       socket.send(message);
     } else {
