@@ -15,7 +15,7 @@ const useSetProfilePicture = () => {
       console.error('failed:', error);
       dispatch(setError('Your Profile picture could not be updated...'));
     },
-    onSettled: () => dispatch(setLoading())
+    onMutate: () => dispatch(setLoading())
   });
 };
 

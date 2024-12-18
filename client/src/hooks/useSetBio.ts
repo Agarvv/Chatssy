@@ -14,7 +14,7 @@ const useSetBio = () => {
       console.error('failed:', error);
       dispatch(setError('Your Profile Boo could not be updated...'));
     },
-    onSettled: () => dispatch(setLoading())
+    onMutate: () => dispatch(setLoading())
   });
 };
 

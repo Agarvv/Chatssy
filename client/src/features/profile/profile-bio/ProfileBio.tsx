@@ -12,7 +12,7 @@ const ProfileBio: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
     const bio = prompt('Enter your new bio');
     if (bio !== null) { 
        mutate(bio)
-      
+      window.location.reload()
     } else {
         alert('Please Provide a BIO.')
     }

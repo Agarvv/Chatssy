@@ -14,7 +14,7 @@ const useSetProfileBanner = () => {
       console.error('failed:', error);
       dispatch(setError('Your Profile Banner could not be updated...'));
     },
-    onSettled: () => dispatch(setLoading())
+    onMutate: () => dispatch(setLoading())
   });
 };
 

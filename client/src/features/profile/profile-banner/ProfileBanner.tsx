@@ -17,6 +17,7 @@ const ProfileBanner: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
                 const image = await uploadImage(file, 'image');
                 console.log('Banner uploaded successfully!', image);
                 mutate(image); 
+                window.location.reload()
             } catch (error) {
                 console.error('Error uploading banner:', error);
             }
@@ -35,7 +36,7 @@ const ProfileBanner: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
                 type="file"
                 ref={fileInputRef} 
                 style={{ display: 'none' }}
-                onChange={handleBannerChange}
+                onChange={handleBannerChange} 
             />
             <img
                 className={styles.banner}
