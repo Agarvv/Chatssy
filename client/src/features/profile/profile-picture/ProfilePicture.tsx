@@ -7,7 +7,7 @@ import MediaUpload from 'src/layout/media-upload/MediaUpload';
 import useSetProfilePicture from 'src/hooks/useSetProfilePicture'
 
 
-const ProfilePicture: React.FC<isSelfProps> = ({ isSelf }) => {
+const ProfilePicture: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
     const { imageUrl, uploadImage } = useImageUpload();
     const { mutate } = useSetProfilePicture()  
 
@@ -28,7 +28,7 @@ const ProfilePicture: React.FC<isSelfProps> = ({ isSelf }) => {
         <MediaUpload change={handleImageChange}>
             {({ triggerInput }) => (
                 <img
-                    src={imageUrl || logo}
+                    src={valueToDisplay || logo}
                     alt="Profile"
                     className={styles.profilePicture}
                     onClick={triggerInput}

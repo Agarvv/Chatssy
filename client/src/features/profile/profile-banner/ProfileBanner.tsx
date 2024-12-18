@@ -7,7 +7,7 @@ import useImageUpload from 'src/hooks/useImageUpload';
 import useSetProfileBanner from 'src/hooks/useSetProfileBanner'
 
 
-const ProfileBanner: React.FC<isSelfProps> = ({ isSelf }) => {
+const ProfileBanner: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
     const { imageUrl, uploadImage } = useImageUpload();
     const { mutate } = useSetProfileBanner()  
 
@@ -29,7 +29,8 @@ const ProfileBanner: React.FC<isSelfProps> = ({ isSelf }) => {
             {({ triggerInput }) => (
                 <img
                     className={styles.banner}
-                    src={imageUrl || logo}
+                    src={
+                    valueToDisplay|| logo}
                     alt="banner"
                     onClick={triggerInput}
                 />

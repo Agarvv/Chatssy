@@ -12,6 +12,7 @@ const ProfileBio: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
     const bio = prompt('Enter your new bio');
     if (bio !== null) { 
        mutate(bio)
+       alert('your bio has been seted!', bio)
     } else {
         alert('Please Provide a BIO.')
     }
@@ -20,7 +21,7 @@ const ProfileBio: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
   return (
     <>
       <div onClick={handleBioChange} className={styles['ud-bio']}>
-        <p>{ valueToDisplay ?? 'BIO not provided'}</p>
+       <p>{valueToDisplay ? valueToDisplay : 'BIO not provided'}</p>
       </div>
     </>
   );
