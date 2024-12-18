@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import { setError, setSuccess, setLoading } from 'src/store/apiStatus/apiStatusSlice';
 import { setUserProfilePicture } from 'src/api/services/profile/ProfileService';
 
-const setUserPicture = (url: string) => 
+const useSetProfilePicture = (url: string) => 
       return useMutation({
          mutationFn: () => setUserProfilePicture(url),
          onSuccess: () => dispatch(setSuccess('Your Profile Picture Has Been Updated !')),

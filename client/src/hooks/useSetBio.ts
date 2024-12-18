@@ -5,7 +5,7 @@ import { setUserProfileBio } from 'src/api/services/profile/ProfileService';
 
 
 
-const setUserBio = (bio: string) => 
+const useSetUserBio = (bio: string) => 
       useMutation({
          mutationFn: () => setUserProfileBio(bio),
          onSuccess: () => dispatch(setSuccess('Your Profile BIO Has Been Updated !')),

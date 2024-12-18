@@ -4,7 +4,7 @@ import { setError, setSuccess, setLoading } from 'src/store/apiStatus/apiStatusS
 import { setUserProfileBanner } from 'src/api/services/profile/ProfileService';
 
 
-const setUserBanner = (url: string) => 
+const useSetProfileBanner = (url: string) => 
       useMutation({
          mutationFn: () => setUserProfileBanner(url),
          onSuccess: () => dispatch(setSuccess('Your Profile Banner Has Been Updated !')),
