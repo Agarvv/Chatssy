@@ -4,12 +4,12 @@ import styles from './ProfileBanner.module.css';
 import logo from 'src/logo.svg';
 import MediaUpload from 'src/layout/media-upload/MediaUpload';
 import useImageUpload from 'src/hooks/useImageUpload';
-import useProfile from 'src/hooks/useProfile'
+import useSetProfileBanner from 'src/hooks/useSetProfileBanner'
 
 
 const ProfileBanner: React.FC<isSelfProps> = ({ isSelf }) => {
     const { imageUrl, uploadImage } = useImageUpload();
-    const { setUserBanner } = useProfile()  
+    const { mutate } = useSetProfileBanner()  
 
     const handleBannerChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -17,7 +17,7 @@ const ProfileBanner: React.FC<isSelfProps> = ({ isSelf }) => {
             try {
                 const image = await uploadImage(file, 'image');
                 console.log('Banner uploaded successfully!', image);
-                setUserBanner(image)
+                mutate(image)
             } catch (error) {
                 console.error('Error uploading banner:', error);
             }
