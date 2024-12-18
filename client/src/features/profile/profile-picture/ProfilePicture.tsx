@@ -8,6 +8,7 @@ import useSetProfilePicture from 'src/hooks/useSetProfilePicture';
 const ProfilePicture: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
     const { imageUrl, uploadImage } = useImageUpload();
     const { mutate } = useSetProfilePicture();  
+    const fileInputRef = React.useRef<HTMLInputElement>(null); 
 
     const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -23,19 +24,18 @@ const ProfilePicture: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
     };
     
     const triggerInput = () => {
-        const inputElement = document.querySelector('input[type="file"]');
-        if (inputElement instanceof HTMLInputElement) {
-            inputElement.click();
+        if (fileInputRef.current) {
+            fileInputRef.current.click(); 
         }
     };
 
     return (
         <>
-            {/* <MediaUpload change={handleImageChange}>
-                {({ triggerInput }) => ( */}
             <input
                 type="file"
+                ref={fileInputRef} 
                 style={{ display: 'none' }}
+                onChange={handleImageChange}
             />
             <img
                 src={logo}
@@ -43,8 +43,6 @@ const ProfilePicture: React.FC<isSelfProps> = ({ isSelf, valueToDisplay }) => {
                 className={styles.rofilePicture}
                 onClick={triggerInput}
             />
-           {/* )}
-        </MediaUpload> */}
         </>
     );
 };
