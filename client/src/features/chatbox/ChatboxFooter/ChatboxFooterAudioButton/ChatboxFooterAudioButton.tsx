@@ -39,7 +39,7 @@ const ChatboxFooterAudioButton: React.FC = () => {
 
         if (file) {
           try {
-            await uploadImage(file, 'audio');
+            await uploadImage(file, 'raw');
             console.log('audio uploaded successfully!', imageUrl);
             const message = {
               type: 'audio',
