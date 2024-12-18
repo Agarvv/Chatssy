@@ -39,7 +39,7 @@ const ChatboxFooterAudioButton: React.FC = () => {
 
         if (file) {
           try {
-            const audio = await uploadImage(file, 'raw');
+            const audio = await uploadImage(file, 'raw'); // raw because of cloudinary audios endpoint
             console.log('audio uploaded successfully!', audio);
             const message = {
               type: 'audio',
