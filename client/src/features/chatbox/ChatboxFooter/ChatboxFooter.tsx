@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './ChatboxFooter.module.css';
-
 
 import ChatboxFooterImageButton from './ChatboxFooterImageButton/ChatboxFooterImageButton';
 import ChatboxFooterAudioButton from './ChatboxFooterAudioButton/ChatboxFooterAudioButton';
@@ -8,24 +7,31 @@ import ChatboxFooterVideoButton from './ChatboxFooterVideoButton/ChatboxFooterVi
 import ChatboxFooterSubmitMessage from './ChatboxFooterSubmitMessage/ChatboxFooterSubmitMessage';
 
 const ChatboxFooter = () => {
+  const [message, setMessage] = useState('');
+
+  const handleInputChange = (event) => {
+    setMessage(event.target.value);
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.fMediaButtons}>
-        { /* send audio button */ } 
         <ChatboxFooterAudioButton />
-
-        { /* send video button */ } 
         <ChatboxFooterVideoButton />
-        
-        { /* send image button */ } 
         <ChatboxFooterImageButton />
       </div>
       <div className={styles.fInp}>
-        <input type="text" placeholder="Send A Message" />
+        <input
+          type="text"
+          placeholder="Send A Message"
+          value={message}
+          onChange={handleInputChange}
+        />
       </div>
       <div className={styles.fSubmit}>
-      { /* submit messsage button */ } 
-         <ChatboxFooterSubmitMessage />
+        <ChatboxFooterSubmitMessage
+        message={message} 
+        />
       </div>
     </footer>
   );
