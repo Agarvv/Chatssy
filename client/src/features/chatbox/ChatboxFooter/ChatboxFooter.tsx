@@ -9,7 +9,7 @@ import ChatboxFooterSubmitMessage from './ChatboxFooterSubmitMessage/ChatboxFoot
 const ChatboxFooter = () => {
   const [message, setMessage] = useState('');
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: any) => {
     setMessage(event.target.value);
   };
 
